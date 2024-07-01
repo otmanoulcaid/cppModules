@@ -1,6 +1,19 @@
-#ifndef CONTACT
-#define CONTACT
-#include <iostream>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/26 19:34:45 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/06/26 19:35:21 by ooulcaid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef __CONTACT_HPP__
+
+# define __CONTACT_HPP__
+# include <iostream>
 
 class Contact
 {

@@ -8,7 +8,7 @@ NAME = account
 
 all : $(NAME)
 
-%.o :%.cpp
+%.o :%.cpp Account.hpp
 	$(CC) -c $< -o $@
 
 $(NAME) : $(OBJ)

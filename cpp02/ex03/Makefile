@@ -1,0 +1,23 @@
+CC = c++ -std=c++98 -Wall -Wextra -Werror
+
+SRC = Fixed.cpp Point.cpp main.cpp bsp.cpp
+
+OBJ = ${SRC:.cpp=.o}
+
+NAME = Fixed
+
+all : $(NAME)
+
+%.o :%.cpp Zombie.hpp
+	$(CC) -c $< -o $@
+
+$(NAME) : $(OBJ)
+		$(CC) $^ -o $(NAME)
+
+clean :
+	rm -f $(OBJ)
+
+fclean : clean
+	rm -f $(NAME)
+
+re : fclean all

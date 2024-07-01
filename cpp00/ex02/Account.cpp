@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/26 19:36:39 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/06/26 19:36:40 by ooulcaid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Account.hpp"
 #include <iostream>
 
@@ -19,7 +31,9 @@ Account::Account(int initial_deposit )
 }
 
 Account::Account( void )
-{}
+{
+    std::cout << "the default constructor is called" < std::endl;
+}
 
 Account::~Account( void )
 {

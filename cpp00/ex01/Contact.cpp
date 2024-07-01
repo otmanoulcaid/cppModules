@@ -1,12 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/26 19:34:37 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/06/26 19:34:41 by ooulcaid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
+
 int	Contact::instance = 0;
 
 Contact::Contact()
 {
+    std::cout << "the default constructor is called" << std::endl;
 	this->index = Contact::instance++ % 8;
 }
 
-Contact::~Contact(){}
+Contact::~Contact()
+{
+    std::cout << "the destructor is called" << std::endl;
+}
 
 int		Contact::getIndex(void)
 {

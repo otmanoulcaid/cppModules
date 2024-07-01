@@ -8,7 +8,7 @@ NAME = agenda
 
 all : $(NAME)
 
-%.o :%.cpp
+%.o :%.cpp Contact.hpp PhoneBook.hpp
 	$(CC) -c $< -o $@
 
 $(NAME) : $(OBJ)

@@ -1,4 +1,15 @@
-#include "Contact.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/26 19:36:20 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/06/26 19:36:21 by ooulcaid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 
 int main()
@@ -15,15 +26,7 @@ int main()
 		if (!choice.compare("ADD"))
 			phoneBook.addContact(i++), system("clear");
 		else if (!choice.compare("SEARCH"))
-		{
-			int	index;
-			phoneBook.displayAll();
-			std::cout << "enter the contact index you are looking for : ";
-			std::cin >> index;
-			system("clear");
-			std::cin.ignore();
-			phoneBook.look(index);
-		}
+			phoneBook.search();
 		else if (!choice.compare("EXIT"))
 			exit(0);
 		else
