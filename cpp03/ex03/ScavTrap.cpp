@@ -39,7 +39,7 @@ void        ScavTrap::guardGate(void)
 	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
 }
 
-// @Overridingo
+// @Overriding
 void	ScavTrap::attack(const std::string& target)
 {
 	if (this->__energyPoint > 0 && this->__hitPoint > 0)

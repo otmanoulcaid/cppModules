@@ -2,12 +2,12 @@
 
 ClapTrap::ClapTrap(void)
 {
-	std::cout << "default constructor is called" << std::endl;
+	std::cout << "ClapTrap default constructor is called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "destructor is called" << std::endl;
+	std::cout << "ClapTrap destructor is called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name, int hit, int energy, int damage)
@@ -53,7 +53,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->__hitPoint >= amount)
 	{
-		std::cout << "ClapTrap take damage" <<std::endl;
+		std::cout << "ClapTrap take damage" << std::endl;
 		this->__hitPoint -= amount;
 	}
 	else
@@ -71,3 +71,4 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	else
 		std::cout << "there is no more energy points" << std::endl;
 }
+

@@ -1,14 +1,14 @@
 CC = c++ -std=c++98 -Wall -Wextra -Werror
 
-SRC = main.cpp Harl.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
-NAME = harl
+NAME = FragTrap
 
 all : $(NAME)
 
-%.o :%.cpp
+%.o :%.cpp Zombie.hpp
 	$(CC) -c $< -o $@
 
 $(NAME) : $(OBJ)

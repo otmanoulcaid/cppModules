@@ -14,11 +14,11 @@ public:
 	ClapTrap(std::string name, int hit, int energy, int damage);
 	ClapTrap();
 	~ClapTrap();
-	void	attack(const std::string& target);
-	void	takeDamage(unsigned int amount);
-	void	beRepaired(unsigned int amount);
-	int		getHitPoint(void);
-	int		getEnergyPoint(void);
+	ClapTrap(const ClapTrap& clap);
+	ClapTrap&	operator=(const ClapTrap& clap);
+	void		attack(const std::string& target);
+	void		takeDamage(unsigned int amount);
+	void		beRepaired(unsigned int amount);
 };
 
 #endif

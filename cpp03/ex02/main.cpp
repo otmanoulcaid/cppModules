@@ -1,8 +1,8 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-   ScavTrap sc("selena");
+   FragTrap sc("selena");
    sc.attack("himseflf");
    sc.takeDamage(10);
    sc.beRepaired(10);

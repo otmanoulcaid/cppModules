@@ -24,7 +24,7 @@ Fixed::~Fixed(void)
 	// std::cout << "the destructor is called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& fixed) : value(fixed.value)
+Fixed::Fixed(const Fixed& fixed) : value(fixed.value) //we add it for 
 {
 	*this = fixed;
 	// std::cout << "the copy constructor is called" << std::endl;	
