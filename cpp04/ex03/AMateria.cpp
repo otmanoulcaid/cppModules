@@ -1,5 +1,3 @@
-// virtual AMateria* clone() const = 0;
-// virtual void use(ICharacter& target);
 #include "AMateria.hpp"
 
 AMateria::AMateria(void)
@@ -36,3 +34,13 @@ std::string	const & AMateria::getType(void) const
 {
 	return this->type;
 }
+
+void	AMateria::use(ICharacter& target)
+{
+	(void)target;
+}
+
+// AMateria* AMateria::clone() const
+// {
+
+// }

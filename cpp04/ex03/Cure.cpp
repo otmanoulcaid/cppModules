@@ -3,12 +3,12 @@
 
 AMateria* Cure::clone() const
 {
-	Cure *Cure = new Cure();
+	return new Cure();
 }
 
 Cure::Cure(void)
 {
-	this->type = "Cure";
+	this->type = "cure";
 	std::cout << "Cure default Constructor is called" << std::endl;
 }
 
@@ -36,4 +36,7 @@ std::string const & Cure::getType(void) const
 	return this->type;
 }
 
-
+void Cure::use(ICharacter& target)
+{
+	std::cout << "* heals "<< target.getName() << "'s Wounds *" << std::endl;
+}

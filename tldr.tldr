@@ -27,7 +27,7 @@
 			"com.tldraw.shape.arrow": 5,
 			"com.tldraw.shape.highlight": 1,
 			"com.tldraw.shape.embed": 4,
-			"com.tldraw.shape.image": 3,
+			"com.tldraw.shape.image": 4,
 			"com.tldraw.shape.video": 2,
 			"com.tldraw.binding.arrow": 0
 		}
@@ -43,9 +43,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 811.7931016267077,
-			"y": 138.5176507234072,
-			"lastActivityTimestamp": 1720515916875,
+			"x": 104.64376453145167,
+			"y": 1143.8828660790064,
+			"lastActivityTimestamp": 1720640582758,
 			"meta": {}
 		},
 		{
@@ -74,7 +74,7 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 875,
+				"w": 1695,
 				"h": 1000
 			},
 			"insets": [
@@ -103,12 +103,10 @@
 			"typeName": "instance"
 		},
 		{
-			"editingShapeId": "shape:z3gYRoTNLB0PUJKML8KEY",
+			"editingShapeId": null,
 			"croppingShapeId": null,
-			"selectedShapeIds": [
-				"shape:z3gYRoTNLB0PUJKML8KEY"
-			],
-			"hoveredShapeId": "shape:z3gYRoTNLB0PUJKML8KEY",
+			"selectedShapeIds": [],
+			"hoveredShapeId": null,
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
 			"focusedGroupId": null,
@@ -118,9 +116,9 @@
 			"typeName": "instance_page_state"
 		},
 		{
-			"x": -81.41102125649283,
-			"y": 686.6071132569575,
-			"z": 0.9676014362808294,
+			"x": 751.8015479685483,
+			"y": -443.99358385244386,
+			"z": 1,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -137,8 +135,8 @@
 			"props": {
 				"color": "black",
 				"size": "m",
-				"w": 275.8046875,
-				"text": " ::      scope resolution",
+				"w": 391.7486877441406,
+				"text": " ::      scope resolution operator",
 				"font": "draw",
 				"textAlign": "start",
 				"autoSize": true,

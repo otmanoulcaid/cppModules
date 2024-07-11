@@ -1,14 +1,16 @@
 CC = c++ -std=c++98 -Wall -Wextra -Werror
 
-SRC = AMateria.cpp Cure.cpp ICharacter.cpp Ice.cpp
+SRC = AMateria.cpp Character.cpp ICharacter.cpp Cure.cpp Ice.cpp MateriaSource.cpp IMateriaSource.cpp main.cpp 
 
 OBJ = ${SRC:.cpp=.o}
 
-NAME = Animals
+HEADERS = AMateria.hpp Cure.hpp IMateriaSource.hpp MateriaSource.hpp Character.hpp ICharacter.hpp Ice.hpp
+
+NAME = materia
 
 all : $(NAME)
 
-%.o :%.cpp Dog.hpp Cat.hpp Animal.hpp Brain.hpp WrongCat.hpp WrongAnimal.hpp 
+%.o :%.cpp $(HEADERS)
 	$(CC) -c $< -o $@
 
 $(NAME) : $(OBJ)

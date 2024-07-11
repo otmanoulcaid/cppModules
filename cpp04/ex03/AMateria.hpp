@@ -2,8 +2,8 @@
 
 # define __AMATERIA_HPP__
 # include <iostream>
-# include "ICharacter.hpp"
 
+class ICharacter;
 class AMateria
 {
 	protected:
@@ -11,7 +11,7 @@ class AMateria
 
 	public:
 		AMateria(void);
-		~AMateria(void);
+		virtual ~AMateria(void);
 		AMateria(AMateria& materia);
 		AMateria& operator=(AMateria& materia);
 		AMateria(std::string const & type);

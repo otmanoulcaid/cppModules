@@ -63,7 +63,7 @@ Fixed	Fixed::operator/(const Fixed& fixed) const
 	return tmp;
 }
 
-Fixed& Fixed::operator++(void)
+Fixed Fixed::operator++(void)
 {
 	++this->value;
 	return *this;

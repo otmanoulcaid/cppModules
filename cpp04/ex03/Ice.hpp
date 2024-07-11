@@ -3,6 +3,7 @@
 # define __ICE_HPP__
 # include <iostream>
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class Ice : public AMateria
 {
@@ -14,7 +15,6 @@ class Ice : public AMateria
 		std::string const & getType() const; //Returns the materia type
 		virtual void use(ICharacter& target);
 		AMateria* clone() const;
-		std::string const & getName() const;
 };
 
 #endif
