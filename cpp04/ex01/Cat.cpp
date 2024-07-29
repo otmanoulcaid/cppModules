@@ -9,7 +9,8 @@ Cat::Cat(void)
 
 Cat::~Cat(void)
 {
-    delete brain;
+	if (!this->brain)
+    	delete brain;
     std::cout << "Cat destructor is called" << std::endl;
 }
 
@@ -19,11 +20,16 @@ Cat::Cat(Cat& Cat)
     *this = Cat;
 }
 
-Cat& Cat::operator=(Cat& Cat)
+Cat& Cat::operator=(Cat& cat)
 {
     std::cout << "Cat copy constructor is called" << std::endl;
-    if (this != &Cat)
-        this->type = Cat.type;
+    if (this != &cat)
+	{
+        this->type = cat.type;
+		delete this->brain;
+		this->brain = new Brain();
+		*(this->brain) = *(cat.brain);
+	}
     return *this;
 }
 

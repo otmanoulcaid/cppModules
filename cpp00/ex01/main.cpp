@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:36:20 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/06/26 19:36:21 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/07/30 09:03:29 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int main()
 			exit(0);
 		else
 			std::cout << "invalid choice." << std::endl;
-		choice.clear();
+		// choice.clear();
 	}
 }

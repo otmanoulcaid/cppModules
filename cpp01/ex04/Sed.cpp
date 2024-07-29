@@ -10,11 +10,9 @@ Sed::~Sed(void)
 	std::cout << "the destructor is called" << std::endl;
 }
 
-Sed::Sed(std::string infile, std::string needle, std::string haystack)
+Sed::Sed(std::string infile, std::string needle, std::string haystack) : needle(needle), haystack(haystack), infile(infile)
 {
-	this->infile = infile;
-	this->needle = needle;
-	this->haystack = haystack;
+	std::cout << "the constructor is called" << std::endl;
 }
 
 void    Sed::searchReplace()
@@ -30,7 +28,7 @@ void    Sed::searchReplace()
 			line.erase(index, needle.length());
 			line.insert(index, haystack);
 		}
-		std::cout << line << std::endl;
+
 		this->outStream << line << std::endl;
 	}
 }

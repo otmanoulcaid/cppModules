@@ -6,20 +6,22 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:35:58 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/06/27 10:15:18 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/07/30 09:55:35 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+int	PhoneBook::instance = 0;
+
 PhoneBook::PhoneBook()
 {
-    std::cout << "the default constructor is called" << std::endl;
+    std::cout << "PhoneBook default constructor is called" << std::endl;
 }
 
 PhoneBook::~PhoneBook()
 {
-    std::cout << "the destructor is called" << std::endl;
+    std::cout << "PhoneBook destructor is called" << std::endl;
 }
 
 void	PhoneBook::append(Contact contact, int position)
@@ -29,8 +31,8 @@ void	PhoneBook::append(Contact contact, int position)
 
 void    PhoneBook::addContact(int index)
 {
-    this->contact[index % 8] = Contact();
-    this->contact[index % 8].newContact();
+	PhoneBook::instance++;
+    return (this->contact[index % 8].newContact());
 }
 
 void    PhoneBook::search(void)
@@ -44,8 +46,9 @@ void    PhoneBook::search(void)
         std::cout << "bad usage" << std::endl;
         std::exit(1);
     }
+	std::cin.ignore();
     system("clear");
-    this->look(index);
+	this->look(index);
 }
 
 void    PhoneBook::printStr(std::string str)
@@ -83,6 +86,8 @@ void    PhoneBook::look(int index)
 {
     if (index < 0 || index > 7)
         std::cout << "index out of range" << std::endl;
+	else if(index > PhoneBook::instance)
+		std::cout << "there is no contact correspond to the given index" << std::endl;
     else
         this->contact[index].displayInfo();
 }

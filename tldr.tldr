@@ -14,8 +14,8 @@
 			"com.tldraw.pointer": 1,
 			"com.tldraw.shape": 4,
 			"com.tldraw.asset.bookmark": 2,
-			"com.tldraw.asset.image": 4,
-			"com.tldraw.asset.video": 4,
+			"com.tldraw.asset.image": 5,
+			"com.tldraw.asset.video": 5,
 			"com.tldraw.shape.group": 0,
 			"com.tldraw.shape.text": 2,
 			"com.tldraw.shape.bookmark": 2,
@@ -43,9 +43,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 104.64376453145167,
-			"y": 1143.8828660790064,
-			"lastActivityTimestamp": 1720640582758,
+			"x": 680.0537753160311,
+			"y": 1411.6068775228553,
+			"lastActivityTimestamp": 1722282031620,
 			"meta": {}
 		},
 		{
@@ -74,7 +74,7 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1695,
+				"w": 945,
 				"h": 1000
 			},
 			"insets": [
@@ -116,8 +116,8 @@
 			"typeName": "instance_page_state"
 		},
 		{
-			"x": 751.8015479685483,
-			"y": -443.99358385244386,
+			"x": -127.63843107774977,
+			"y": -784.4715015462928,
 			"z": 1,
 			"meta": {},
 			"id": "camera:page:page",

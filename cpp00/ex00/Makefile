@@ -8,7 +8,7 @@ NAME = megaphone
 
 all : $(NAME)
 
-%.o :%.cpp
+$(OBJ) : $(SRC)
 	$(CC) -c $< -o $@
 
 $(NAME) : $(OBJ)

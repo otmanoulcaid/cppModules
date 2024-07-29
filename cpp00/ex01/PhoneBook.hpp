@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:35:31 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/06/26 19:35:52 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:35:40 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class PhoneBook
 {
 	private:
+		static	int	instance;
 		Contact contact[8];
 
 	public:
