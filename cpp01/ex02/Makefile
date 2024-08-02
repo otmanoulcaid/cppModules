@@ -1,4 +1,16 @@
-CC = c++ -std=c++98 -Wall -Wextra -Werror
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/08/01 11:14:24 by ooulcaid          #+#    #+#              #
+#    Updated: 2024/08/01 12:48:17 by ooulcaid         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+CPP = c++ -std=c++98 -Wall -Wextra -Werror
 
 SRC = main.cpp
 
@@ -9,10 +21,10 @@ NAME = brain
 all : $(NAME)
 
 main.o :main.cpp
-	$(CC) -c $< -o $@
+	$(CPP) -c $< -o $@
 
 $(NAME) : $(OBJ)
-		$(CC) $^ -o $(NAME)
+	$(CPP) $^ -o $(NAME)
 
 clean :
 	rm -f $(OBJ)
@@ -21,3 +33,5 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+.PHONY : clean

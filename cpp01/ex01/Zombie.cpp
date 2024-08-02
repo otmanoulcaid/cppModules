@@ -6,15 +6,15 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:37:46 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/06/26 22:26:34 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/08/01 13:36:45 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(std::string name) : name(name)
 {
-    this->name = name;
+    std::cout << "Zombie constructor is called" << std::endl;
 }
 
 Zombie::Zombie()
@@ -24,7 +24,7 @@ Zombie::Zombie()
 
 Zombie::~Zombie()
 {
-    std::cout << "destructor has been called" << std::endl;
+    std::cout << this->name << " destructor has been called" << std::endl;
 }
 
 std::string Zombie::getName(void)

@@ -1,6 +1,18 @@
-#include "HumanA.hpp"
-#include "HumanB.hpp"
-#include "Weapon.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/01 11:10:19 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/01 11:10:20 by ooulcaid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+# include "HumanB.hpp"
+# include "Weapon.hpp"
+# include "HumanA.hpp"
 
 int main()
 {

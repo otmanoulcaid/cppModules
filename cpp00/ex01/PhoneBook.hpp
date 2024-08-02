@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:35:31 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/07/29 16:35:40 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/07/30 10:00:56 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define __PHONEBOOK_HPP__
 # include "Contact.hpp"
+#include <iomanip>
 
 class PhoneBook
 {

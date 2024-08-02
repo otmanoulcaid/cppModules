@@ -1,4 +1,16 @@
-CC = c++ -std=c++98 -Wall -Wextra -Werror
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/08/01 11:09:49 by ooulcaid          #+#    #+#              #
+#    Updated: 2024/08/01 12:48:08 by ooulcaid         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+CPP = c++ -std=c++98 -Wall -Wextra -Werror
 
 SRC = main.cpp Sed.cpp
 
@@ -8,11 +20,11 @@ NAME = sed
 
 all : $(NAME)
 
-%.o :%.cpp
-	$(CC) -c $< -o $@
+%.o :%.cpp Sed.hpp
+	$(CPP) -c $< -o $@
 
 $(NAME) : $(OBJ)
-		$(CC) $^ -o $(NAME)
+	$(CPP) $^ -o $(NAME)
 
 clean :
 	rm -f $(OBJ)

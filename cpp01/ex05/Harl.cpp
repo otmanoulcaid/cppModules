@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/01 11:09:35 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/01 12:42:43 by ooulcaid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 void    Harl::debug(void)
@@ -17,11 +29,19 @@ years whereas you started working here since last month." << std::endl;
 }
 void    Harl::error(void)
 {
-    std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl; 
+    std::cout << "This is unaCPPeptable! I want to speak to the manager now." << std::endl; 
 }
 
-Harl::Harl(){}
-Harl::~Harl(){}
+Harl::Harl()
+{
+	std::cout << "Harl default constructor is called" << std::endl;
+}
+
+Harl::~Harl()
+{
+	std::cout << "Harl destructor is called" << std::endl;
+}
+
 void    Harl::complain(std::string level)
 {
     void (Harl::*f[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
@@ -32,7 +52,7 @@ void    Harl::complain(std::string level)
     if (i == 4)
     {
         std::cout << "the level " << level << " does not exist" << std::endl; 
-        std::exit(1);
+        return ;
     }
     (this->*f[i])();
 }

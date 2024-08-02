@@ -6,14 +6,12 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:37:42 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/06/26 22:29:21 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/08/01 11:30:59 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 Zombie* zombieHorde( int N, std::string name );
-
-void    check(){system("leaks zombie");}
 
 int main()
 {

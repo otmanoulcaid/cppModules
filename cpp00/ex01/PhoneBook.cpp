@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:35:58 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/07/30 09:55:35 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/07/30 10:10:44 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,14 @@ void    PhoneBook::search(void)
 
 void    PhoneBook::printStr(std::string str)
 {
-    int i = str.length() > 7 ? 0 : 10 - str.length();
-    for (int j = 0; j < i; j++)
-        std::cout << " ";
-    for (int j = 0; str[j], j < 9; j++)
-        std::cout << str[j];
-    if (!i)
+	if (str.length() < 10)
+		std::cout << std::setw(10) << str;
+	else
+	{
+		for (int j = 0; j < 9; j++)
+			std::cout << str[j];	
         std::cout << ".";
+	}
 }
 
 void    PhoneBook::displayAll(void)
@@ -86,7 +87,7 @@ void    PhoneBook::look(int index)
 {
     if (index < 0 || index > 7)
         std::cout << "index out of range" << std::endl;
-	else if(index > PhoneBook::instance)
+	else if(index >= PhoneBook::instance)
 		std::cout << "there is no contact correspond to the given index" << std::endl;
     else
         this->contact[index].displayInfo();
