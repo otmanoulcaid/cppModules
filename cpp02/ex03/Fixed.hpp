@@ -35,14 +35,14 @@ class Fixed
 		bool	operator!=(const Fixed& fixed);
 
 		/*-------------Member functions-----------*/
+		static 			Fixed&	max(Fixed& a, Fixed& b);
+		static 			Fixed&	min(Fixed& a, Fixed& b);
 		static const	Fixed&	max(const Fixed& a, const Fixed& b);
-		int 			getRawBits(void) const;
-		void 			setRawBits(const int number);
+		static const	Fixed&	min(const Fixed& a, const Fixed& b);
 		int				toInt(void) const;
 		float			toFloat(void) const;
 };
 
-std::ostream	&operator<<(std::ostream &out, const Fixed &_fixed_);
+std::ostream&	operator<<(std::ostream &out, const Fixed &_fixed_);
 
 #endif
-

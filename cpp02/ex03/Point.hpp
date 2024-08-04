@@ -7,8 +7,8 @@
 class Point
 {
 	public:
-		const Fixed	x;
-		const Fixed	y;
+		Fixed	const x;
+		Fixed	const y;
 
 	public:
 		Point();

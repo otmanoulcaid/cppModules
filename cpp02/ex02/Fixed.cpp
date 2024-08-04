@@ -6,28 +6,30 @@ const int	Fixed::__fract = 8;
 Fixed::Fixed()
 {
 	this->value = 0;
-	// std::cout << "the default constructor is called" << std::endl;
+	std::cout << "the default constructor is called" << std::endl;
 }
 
 Fixed::Fixed(const int number)
 {
-	this->value = number << 8;
+	std::cout << "int Fixed constructor is called" << std::endl;
+	this->value = number * (1 << Fixed::__fract);
 }
 
 Fixed::Fixed(const float number)
 {
+	std::cout << "float Fixed constructor is called" << std::endl;
 	this->value = roundf((1 << Fixed::__fract) * number);
 }
 
 Fixed::~Fixed(void)
 {
-	// std::cout << "the destructor is called" << std::endl;
+	std::cout << "the destructor is called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& fixed) : value(fixed.value) //we add it for 
+Fixed::Fixed(const Fixed& fixed) 
 {
+	std::cout << "the copy constructor is called" << std::endl;	
 	*this = fixed;
-	// std::cout << "the copy constructor is called" << std::endl;	
 }
 
 /*--------------------Operator Overloading-------------------*/
@@ -47,23 +49,23 @@ Fixed	Fixed::operator+(const Fixed& fixed) const
 
 Fixed	Fixed::operator-(const Fixed& fixed) const
 {
-	const Fixed tmp(this->toFloat() - fixed.toFloat());
+	Fixed tmp(this->toFloat() - fixed.toFloat());
 	return tmp;
 }
 
 Fixed	Fixed::operator*(const Fixed& fixed) const
 {
-	const Fixed tmp(this->toFloat() * fixed.toFloat());
+	Fixed tmp((this->value * fixed.value) / (1 << Fixed::__fract));
 	return tmp;
 }
 
 Fixed	Fixed::operator/(const Fixed& fixed) const
 {
-	const Fixed tmp(this->toFloat() / fixed.toFloat());
+	Fixed tmp((this->value / fixed.value) * (1 << Fixed::__fract));
 	return tmp;
 }
 
-Fixed Fixed::operator++(void)
+Fixed& Fixed::operator++(void)
 {
 	++this->value;
 	return *this;
@@ -78,14 +80,14 @@ Fixed Fixed::operator++(int)
 
 Fixed& Fixed::operator--(void)
 {
-    ++this->value;
+    --this->value;
     return (*this);         
 }
 
 Fixed Fixed::operator--(int)
 {
 	Fixed temp = *this;
-	this->value++;
+	this->value--;
 	return temp;         
 }
 
@@ -125,9 +127,19 @@ const Fixed&	Fixed::max(const Fixed& a, const Fixed& b)
 	return (a.value > b.value ? a : b);
 }
 
-int	Fixed::toInt(void) const
+Fixed&	Fixed::max(Fixed& a, Fixed& b)
 {
-	return (this->value / (float(1 << Fixed::__fract)));
+	return (a.value > b.value ? a : b);
+}
+
+const Fixed&	Fixed::min(const Fixed& a, const Fixed& b)
+{
+	return (a.value < b.value ? a : b);
+}
+
+Fixed&	Fixed::min(Fixed& a, Fixed& b)
+{
+	return (a.value < b.value ? a : b);
 }
 
 float	Fixed::toFloat(void) const
@@ -135,18 +147,8 @@ float	Fixed::toFloat(void) const
 	return (this->value / (float(1 << Fixed::__fract)));
 }
 
-int	Fixed::getRawBits(void) const
-{
-	return (this->value);
-}
-
-void	Fixed::setRawBits(int const raw)
-{
-	this->value = raw;
-}
-
 /*-----------------external functions--------------*/
-std::ostream& operator<<(std::ostream &out, const Fixed &fixed)
+std::ostream&	operator<<(std::ostream &out, const Fixed &fixed)
 {
     out << fixed.toFloat();
     return out;

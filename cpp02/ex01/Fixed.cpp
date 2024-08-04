@@ -1,19 +1,22 @@
 #include "Fixed.hpp"
 
-const int	Fixed::__fract = 8;
+int	Fixed::__fract = 8;
 
 Fixed::Fixed()
 {
+	this->value = 0;
 	std::cout << "the default constructor is called" << std::endl;
 }
 
 Fixed::Fixed(const int number)
 {
-	this->value = number << 8;
+	std::cout << "int Fixed constructor is called" << std::endl;
+	this->value =  number * (1 << Fixed::__fract);
 }
 Fixed::Fixed(const float number)
 {
-	this->value = this->getRawBits(number);
+	std::cout << "float Fixed constructor is called" << std::endl;
+	this->value = roundf(number * (1 << Fixed::__fract));
 }
 
 Fixed::~Fixed(void)
@@ -36,17 +39,12 @@ Fixed&	Fixed::operator=(const Fixed& fixed)
 
 int	Fixed::toInt(void) const
 {
-	return (this->value / (float(1 << Fixed::__fract)));
+	return (this->value / (1 << Fixed::__fract));
 }
 
 float	Fixed::toFloat(void) const
 {
 	return (this->value / (float(1 << Fixed::__fract)));
-}
-
-int	Fixed::getRawBits(const float number) const
-{
-	return (roundf((1 << Fixed::__fract) * number));
 }
 
 std::ostream& operator<<(std::ostream &out, const Fixed &fixed)

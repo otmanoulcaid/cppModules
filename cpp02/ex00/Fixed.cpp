@@ -2,7 +2,7 @@
 
 int	Fixed::__fract = 8;
 
-Fixed::Fixed()
+Fixed::Fixed(void)
 {
 	std::cout << "Default constructor called" << std::endl;
 	Fixed::value = 0;
@@ -31,10 +31,10 @@ Fixed&	Fixed::operator=(Fixed& fixed)
 int	Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (0);
+	return (this->value);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	this->value = raw;
+	this->value = raw * (1 << Fixed::__fract);
 }

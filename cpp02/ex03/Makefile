@@ -8,7 +8,7 @@ NAME = Fixed
 
 all : $(NAME)
 
-%.o :%.cpp Zombie.hpp
+%.o :%.cpp Point.hpp Fixed.hpp
 	$(CC) -c $< -o $@
 
 $(NAME) : $(OBJ)
@@ -21,3 +21,5 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+.PHONY : clean
