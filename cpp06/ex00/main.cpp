@@ -5,30 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 08:46:01 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/10 19:47:17 by ooulcaid         ###   ########.fr       */
+/*   Created: 2024/08/11 14:37:28 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/12 19:22:08 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "scalarConverter.hpp"
+#include "Converter.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-	try
+	if (ac > 1)
 	{
-		Bureaucrat bureau("hamada", -1);
-		std::cout << bureau << std::endl;
-	}
-	catch(Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
-	}
-	catch(...)
-	{
-		std::cerr << "  ==== !!! === "<< std::endl;
+		std::string strFormat;
+		std::stringstream stream(av[ac - 1]);
+		stream >> strFormat;
+		// std::cout << scalarConverter::convert(strFormat);
+		Converter con(scalarConverter::convert(strFormat));
+		con.charHandler(strFormat);
+		con.intHandler(strFormat);
+		con.floatHandler(strFormat);
+		con.doubleHandler(strFormat);
 	}
 }

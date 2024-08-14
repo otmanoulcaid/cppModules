@@ -1,34 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 08:46:01 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/10 19:47:17 by ooulcaid         ###   ########.fr       */
+/*   Created: 2024/08/14 21:43:22 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/14 21:49:40 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Base.hpp"
 
-int main()
-{
-	try
-	{
-		Bureaucrat bureau("hamada", -1);
-		std::cout << bureau << std::endl;
-	}
-	catch(Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
-	}
-	catch(...)
-	{
-		std::cerr << "  ==== !!! === "<< std::endl;
-	}
-}

@@ -43,9 +43,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 680.0537753160311,
-			"y": 1411.6068775228553,
-			"lastActivityTimestamp": 1722282031620,
+			"x": 781.0287966728996,
+			"y": 930.366192220733,
+			"lastActivityTimestamp": 1723407791620,
 			"meta": {}
 		},
 		{
@@ -59,7 +59,9 @@
 			"followingUserId": null,
 			"opacityForNextShape": 1,
 			"stylesForNextShape": {
-				"tldraw:geo": "rectangle"
+				"tldraw:geo": "rectangle",
+				"tldraw:dash": "solid",
+				"tldraw:color": "light-green"
 			},
 			"brush": null,
 			"scribbles": [],
@@ -74,7 +76,7 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 945,
+				"w": 910,
 				"h": 1000
 			},
 			"insets": [
@@ -116,9 +118,9 @@
 			"typeName": "instance_page_state"
 		},
 		{
-			"x": -127.63843107774977,
-			"y": -784.4715015462928,
-			"z": 1,
+			"x": -210.60883643831184,
+			"y": 351.70062372066633,
+			"z": 0.5468261710474891,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -193,26 +195,95 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 338.75510003467974,
-			"y": -134.92784504412327,
+			"x": 295.706260644126,
+			"y": 362.5392233517589,
 			"rotation": 0,
 			"isLocked": false,
 			"opacity": 1,
 			"meta": {},
-			"id": "shape:UuX8xD8gC0WKvjxKycmAG",
+			"id": "shape:8oTWWEeglO8H5Q8iIDIFs",
 			"type": "text",
 			"props": {
 				"color": "black",
 				"size": "m",
-				"w": 546.7161254882812,
-				"text": "1/2 (x1 (y2 - y3) + x2 (y3 - y1) + x3 (y1 - y2)",
+				"w": 1430.0625,
+				"text": "when dealing with pointer in dynamic casting, if the base class is polymorphic, and we want to cast fromthe child\n to the base  the code will compile and it will return a null pointer in runtime otherwise it will not be compiled",
 				"font": "draw",
 				"textAlign": "start",
 				"autoSize": true,
 				"scale": 1
 			},
 			"parentId": "page:page",
-			"index": "a4",
+			"index": "a410G",
+			"typeName": "shape"
+		},
+		{
+			"x": 221.49635833742371,
+			"y": 300.4529359891237,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:oMSWknrDmL28xD4oRzD-0",
+			"type": "text",
+			"props": {
+				"color": "orange",
+				"size": "m",
+				"w": 201.2083282470703,
+				"text": "dynamic casting",
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1.5318210667561925
+			},
+			"parentId": "page:page",
+			"index": "a2V5Gi",
+			"typeName": "shape"
+		},
+		{
+			"x": 310.3325665864314,
+			"y": 468.33438379402645,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:R2g04-xsYIFRFTtpydGxl",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 1289.6588134765625,
+				"text": "when dealing with refrences in dynamic casting, if the base class is polymorphic, and we want to cast \nfromthe child to the base  the code will throw bad_cast exception",
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "a56ct",
+			"typeName": "shape"
+		},
+		{
+			"x": 586.9400942629252,
+			"y": 306.78674221911973,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:MYqjFp5URrKE7O7l7cbZL",
+			"type": "text",
+			"props": {
+				"color": "light-green",
+				"size": "m",
+				"w": 1231.052001953125,
+				"text": "https://youtube.com/playlist?list=PL1w8k37X_6L-KS5DQt7U0rCtgIgdIadWz&si=nHa_hFW9rR3bXx31",
+				"font": "draw",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "a6AMU",
 			"typeName": "shape"
 		}
 	]

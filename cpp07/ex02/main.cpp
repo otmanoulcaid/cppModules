@@ -5,30 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 08:46:01 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/10 19:47:17 by ooulcaid         ###   ########.fr       */
+/*   Created: 2024/08/14 17:15:59 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/14 21:05:30 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Array.hpp"
 
-int main()
-{
+int main( void )
+{ 
+	Array <int> *arr = new Array<int>(10);
+
 	try
 	{
-		Bureaucrat bureau("hamada", -1);
-		std::cout << bureau << std::endl;
+		std::cout << (*arr)[10] << std::endl;
 	}
-	catch(Bureaucrat::GradeTooHighException& e)
+	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
-	}
-	catch(...)
-	{
-		std::cerr << "  ==== !!! === "<< std::endl;
+		std::cerr << e.what() << '\n';
 	}
 }

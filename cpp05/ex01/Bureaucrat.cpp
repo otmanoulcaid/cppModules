@@ -6,11 +6,12 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 08:45:38 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 14:39:12 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/08/10 21:28:30 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void)
 {
@@ -20,9 +21,10 @@ Bureaucrat::Bureaucrat(void)
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
 	std::cout << "Bureaucrat constructor is called" << std::endl;
-	if (this->grade > 150)
+	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException("grade is too Low");
-	else if (this->grade < 1)
+	else if (grade < 1)
+	
 		throw Bureaucrat::GradeTooHighException("grade is too High");
 	this->grade = grade;
 }
@@ -38,13 +40,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat)
 	*this = bureaucrat;
 }
 
-Bureaucrat&		Bureaucrat::operator=(const Bureaucrat& bureaucrat)
-{
-	if (this != &bureaucrat)
-		this->grade = bureaucrat.grade;
-	return *this;
-}
-
 std::string	Bureaucrat::getName(void) const
 {
 	return (this->name);
@@ -53,6 +48,13 @@ std::string	Bureaucrat::getName(void) const
 int	Bureaucrat::getGrade(void) const
 {
 	return (this->grade);
+}
+
+Bureaucrat&		Bureaucrat::operator=(const Bureaucrat& bureaucrat)
+{
+	if (this != &bureaucrat)
+		this->grade = bureaucrat.grade;
+	return *this;
 }
 
 std::ostream&	operator<<(std::ostream &out, const Bureaucrat& bureaucrat)
@@ -94,3 +96,31 @@ void	Bureaucrat::decremet(void)
 		throw Bureaucrat::GradeTooLowException("Ooops! you cant decrement the grade ;)");
 	this->grade++;
 }
+
+void	Bureaucrat::signForm(Form& form) const
+{
+	if (!form.getIsSigned())
+	{
+		try
+		{
+			form.beSigned(*this);
+			std::cout << this->name << " signed " << form.getName() << std::endl;
+		}
+		catch(const Form::GradeTooLowException& e)
+		{
+			std::cerr << this->name + " couldnt sign " << form.getName() << " because " << e.what() << std::endl;
+		}
+	}
+}
+
+// void	Bureaucrat::signForm(bool getIsSigned, std::string name) const
+// {
+// 	if (!getIsSigned)
+// 	{
+// 		std::cout << this->name << " signed " << name << std::endl;
+// 	}
+// 	else
+// 	{
+// 		std::cerr << this->name + " couldnt sign " << name << "because he has not the higher grade" << std::endl;
+// 	}
+// }

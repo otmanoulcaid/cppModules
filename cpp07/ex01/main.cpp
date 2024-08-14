@@ -5,30 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 08:46:01 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/10 19:47:17 by ooulcaid         ###   ########.fr       */
+/*   Created: 2024/08/14 16:23:35 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/14 21:09:56 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "iter.hpp"
 
-int main()
+void upper(char c)
 {
-	try
-	{
-		Bureaucrat bureau("hamada", -1);
-		std::cout << bureau << std::endl;
-	}
-	catch(Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
-	}
-	catch(...)
-	{
-		std::cerr << "  ==== !!! === "<< std::endl;
-	}
+	if (c <= 'z' && c >= 'a')
+		std::cout << (c-=32);
+	else
+		std::cout << c;
+}
+
+void odds(int nbr)
+{
+	
+	std::cout << (nbr % 2 ? nbr : 0);
+}
+
+int main( void )
+{ 
+	char s[] = "hello world";
+	iter(s, 11, &upper);
+	std::cout << "\n--------------------------------\n";
+	int nbr[] = {1, 2, 3, 4, 5};
+	iter(nbr, 5, &odds);
+	std::cout << "\n--------------------------------\n";
+	
 }

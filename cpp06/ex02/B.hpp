@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 08:46:01 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/10 19:47:17 by ooulcaid         ###   ########.fr       */
+/*   Created: 2024/08/14 21:41:28 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/14 21:50:01 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
 
-int main()
-{
-	try
-	{
-		Bureaucrat bureau("hamada", -1);
-		std::cout << bureau << std::endl;
-	}
-	catch(Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
-	}
-	catch(...)
-	{
-		std::cerr << "  ==== !!! === "<< std::endl;
-	}
-}
+#ifndef __B_HPP__
+
+# define __B_HPP__
+# include <iostream>
+# include "Base.cpp"
+
+class B : public virtual Base
+{};
+
+#endif

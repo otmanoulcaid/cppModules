@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 08:46:01 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/10 19:47:17 by ooulcaid         ###   ########.fr       */
+/*   Created: 2024/08/14 16:23:20 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/14 16:49:20 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
 
-int main()
+#ifndef __WHATEVER_HPP__
+
+# define __WHATEVER_HPP__
+# include <iostream>
+
+template<typename T>
+void	swap(T& a, T& b)
 {
-	try
-	{
-		Bureaucrat bureau("hamada", -1);
-		std::cout << bureau << std::endl;
-	}
-	catch(Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
-	}
-	catch(...)
-	{
-		std::cerr << "  ==== !!! === "<< std::endl;
-	}
+	T c;
+	
+	c = a;
+	a = b;
+	b = c;
 }
+
+template<typename T>
+T	max(T& a, T& b)
+{
+	return (b >= a ? b : a);
+}
+
+template<typename T>
+T	min(T& a, T& b)
+{
+	return (b <= a ? b : a);
+}
+
+# endif

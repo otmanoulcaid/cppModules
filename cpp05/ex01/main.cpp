@@ -5,30 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 08:46:01 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/10 19:47:17 by ooulcaid         ###   ########.fr       */
+/*   Created: 2024/08/10 17:03:27 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/10 21:31:30 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include <iostream>
 
-int main()
+int main(void)
 {
 	try
 	{
-		Bureaucrat bureau("hamada", -1);
+		Form form("chahada d skna", 10, 3, false);
+		Bureaucrat bureau("hamada", 11);
 		std::cout << bureau << std::endl;
+		bureau.signForm(form);
+		bureau.incremet();
+		std::cout << bureau.getName() << " has level up" <<std::endl;
+		bureau.signForm(form);
+	}
+	catch(Form::GradeTooHighException& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	catch(Form::GradeTooLowException& e)
+	{
+		std::cerr << e.what() << std::endl;
 	}
 	catch(Bureaucrat::GradeTooHighException& e)
 	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	catch(Bureaucrat::GradeTooLowException& e)
 	{
-		std::cerr << e.what() << "  ==== !!! === "<< std::endl;
+		std::cerr << e.what() << std::endl;
 	}
-	catch(...)
+	catch(const std::exception& e)
 	{
-		std::cerr << "  ==== !!! === "<< std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }
