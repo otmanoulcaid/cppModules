@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:28:44 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/14 21:38:43 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/08/15 11:27:33 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Serializer
 		Serializer& operator=(const Serializer& ser);
 
 	public :
-		void	serialize(Data* ptr);
-		Data	*deserialize(uintptr_t raw);
+		static uintptr_t	serialize(Data* ptr);
+		static Data			*deserialize(uintptr_t raw);
 };
 
 #endif
