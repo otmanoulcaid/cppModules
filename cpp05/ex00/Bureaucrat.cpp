@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 08:45:38 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 14:39:12 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 01:03:20 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout << "Bureaucrat destructor is called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat)
+Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) : name(bureaucrat.getName())
 {
 	// std::cout << "Bureaucrat copy constructor is called" << std::endl;
-	*this = bureaucrat;
+	this->grade = bureaucrat.getGrade();
 }
 
 Bureaucrat&		Bureaucrat::operator=(const Bureaucrat& bureaucrat)
 {
 	if (this != &bureaucrat)
-		this->grade = bureaucrat.grade;
+		this->grade = bureaucrat.getGrade();
 	return *this;
 }
 
@@ -73,12 +73,12 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(const char *errMsg) throw
 
 const char *Bureaucrat::GradeTooHighException::what(void) const throw()
 {
-	return errMsg;
+	return this->errMsg;
 }
 
 const char *Bureaucrat::GradeTooLowException::what(void) const throw()
 {
-	return errMsg;
+	return this->errMsg;
 }
 
 void	Bureaucrat::incremet(void)

@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 08:45:38 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 11:35:49 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 01:42:13 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,28 @@
 
 Bureaucrat::Bureaucrat(void)
 {
-	std::cout << "Bureaucrat defualt constructor is called" << std::endl;
+	// std::cout << "Bureaucrat defualt constructor is called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
-	std::cout << "Bureaucrat constructor is called" << std::endl;
+	// std::cout << "Bureaucrat constructor is called" << std::endl;
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException("grade is too Low");
 	else if (grade < 1)
-	
 		throw Bureaucrat::GradeTooHighException("grade is too High");
 	this->grade = grade;
 }
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Bureaucrat destructor is called" << std::endl;
+	// std::cout << "Bureaucrat destructor is called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat)
+Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) : name(bureaucrat.getName())
 {
 	// std::cout << "Bureaucrat copy constructor is called" << std::endl;
-	*this = bureaucrat;
+	this->grade = bureaucrat.getGrade();
 }
 
 std::string	Bureaucrat::getName(void) const
@@ -53,7 +52,7 @@ int	Bureaucrat::getGrade(void) const
 Bureaucrat&		Bureaucrat::operator=(const Bureaucrat& bureaucrat)
 {
 	if (this != &bureaucrat)
-		this->grade = bureaucrat.grade;
+		this->grade = bureaucrat.getGrade();
 	return *this;
 }
 
@@ -118,6 +117,5 @@ void	Bureaucrat::executeForm(AForm const & form)
 	if (this->grade > form.getGradeSign())
 		throw AForm::GradeTooLowException("you are not allowed to sign the form");
 	form.execute(*this);
-	
 	std::cout << this->name << " executed " << form.getName() << std::endl; 
 }

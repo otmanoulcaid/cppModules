@@ -1,7 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/17 16:28:07 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/17 16:28:08 by ooulcaid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(void)
 {
+	this->hitPoint = 100;
+	this->energyPoint = 100;
+	this->attackDamage = 30;
 	std::cout << "FragTrap default constructor is called" << std::endl;
 }
 
@@ -10,8 +25,11 @@ FragTrap::~FragTrap(void)
 	std::cout << "FragTrap destructor is called" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30)
+FragTrap::FragTrap(std::string name) : ClapTrap(name) 
 {
+	this->hitPoint = 100;
+	this->energyPoint = 100;
+	this->attackDamage = 30;
 	std::cout << "FragTrap constructor is called" << std::endl;
 }
 
@@ -27,9 +45,9 @@ FragTrap&	FragTrap::operator=(const FragTrap& trap)
 	if (this != &trap)
 	{
 		this->name = trap.name;
-		this->__attackDamage = trap.__attackDamage;
-		this->__energyPoint = trap.__energyPoint;
-		this->__hitPoint = trap.__hitPoint;
+		this->attackDamage = trap.attackDamage;
+		this->energyPoint = trap.energyPoint;
+		this->hitPoint = trap.hitPoint;
 	}
 	return *this;
 }

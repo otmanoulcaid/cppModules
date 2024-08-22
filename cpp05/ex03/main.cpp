@@ -6,47 +6,40 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 11:22:07 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 13:01:29 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 03:36:10 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 #include "Intern.hpp"
+#include "AForm.hpp"
 
 
 int main()
 {
 	Intern intern;
+	AForm *form = NULL;
 	try
 	{
 		Bureaucrat bureau("hamada", 1);
-		ShrubberyCreationForm form("CSF");
-		form.beSigned(bureau);
-		form.execute(bureau);
-		std::cout << form;
+		ShrubberyCreationForm shForm("CSF");
+		shForm.beSigned(bureau);
+		shForm.execute(bureau);
+		form = intern.makeForm("fooo", "PresidentialPardonForm");
 	}
-	catch (const AForm::GradeTooHighException& e)
+	catch (const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
+		if (form)
+			free(form);
 	}
-	catch (const AForm::GradeTooLowException& e)
+	catch(...)
 	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (const Bureaucrat::GradeTooHighException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (const Bureaucrat::GradeTooLowException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (const std::runtime_error& e)
-	{
-		std::cout << e.what() << std::endl;
+		if (form)
+			free(form);
 	}
 }

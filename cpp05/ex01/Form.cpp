@@ -6,45 +6,48 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 20:24:15 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/10 21:48:54 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 02:54:23 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Form::Form(const std::string name, const int gradeSign, const int gradeExec, bool isSigned) : 
+Form::Form(const std::string name, const int gradeSign, const int gradeExec) : 
 name(name), 
-gradeSign(gradeSign), 
-gradeExec(gradeExec), 
-isSigned(isSigned)
+gradeSign(gradeSign),
+gradeExec(gradeExec)
 {
-	std::cout << "default consructor is called" << std::endl;
+	// std::cout << "default consructor is called" << std::endl;
 	if (this->gradeSign < 1)
 		throw Form::GradeTooHighException("Oops!! grade too High");
 	if (this->gradeSign > 150)
 		throw Form::GradeTooLowException("Oops!! grade too low");
+	this->isSigned = false;
 }
 
 Form::Form(void) : gradeSign(0), gradeExec(0)
 {
-	std::cout << "default consructor is called" << std::endl;
+	// std::cout << "default consructor is called" << std::endl;
 }
 
 Form::~Form(void)
 {
-	std::cout << "Form desructor is called" << std::endl;
+	// std::cout << "Form desructor is called" << std::endl;
 }
 
-Form::Form(const Form& form) : name(form.name), gradeSign(form.gradeSign), gradeExec(form.gradeExec)
+Form::Form(const Form& form) : 
+name(form.getName()), 
+gradeSign(form.getGradeSign()),
+gradeExec(form.getGradeExec())
 {
-	std::cout << "Form desructor is called" << std::endl;
+	// std::cout << "Form copy constructor is called" << std::endl;
 	this->isSigned = form.getIsSigned();
 }
 
 Form&	Form::operator=(const Form& form)
 {
-	std::cout << "Copy assignement operator is called" << std::endl;
+	// std::cout << "Copy assignement operator is called" << std::endl;
 	if (this != &form)
 		this->isSigned = form.getIsSigned();
 	return (*this);
@@ -101,4 +104,5 @@ std::ostream&	operator<<(std::ostream &out, const Form& form)
 {
 	out << "form : " << form.getName() << " , grade : " << form.getGradeSign() << " gradeExec " \
 	<< form.getGradeExec() << " isSigned : " << form.getIsSigned() << std::endl;
+	return out;
 }

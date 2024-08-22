@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 08:45:38 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/10 21:28:30 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 01:04:10 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,28 @@
 
 Bureaucrat::Bureaucrat(void)
 {
-	std::cout << "Bureaucrat defualt constructor is called" << std::endl;
+	// std::cout << "Bureaucrat defualt constructor is called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
-	std::cout << "Bureaucrat constructor is called" << std::endl;
+	// std::cout << "Bureaucrat constructor is called" << std::endl;
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException("grade is too Low");
 	else if (grade < 1)
-	
 		throw Bureaucrat::GradeTooHighException("grade is too High");
 	this->grade = grade;
 }
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Bureaucrat destructor is called" << std::endl;
+	// std::cout << "Bureaucrat destructor is called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat)
+Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) : name(bureaucrat.getName())
 {
 	// std::cout << "Bureaucrat copy constructor is called" << std::endl;
-	*this = bureaucrat;
+	this->grade = bureaucrat.getGrade();
 }
 
 std::string	Bureaucrat::getName(void) const
@@ -53,7 +52,7 @@ int	Bureaucrat::getGrade(void) const
 Bureaucrat&		Bureaucrat::operator=(const Bureaucrat& bureaucrat)
 {
 	if (this != &bureaucrat)
-		this->grade = bureaucrat.grade;
+		this->grade = bureaucrat.getGrade();
 	return *this;
 }
 
@@ -112,15 +111,3 @@ void	Bureaucrat::signForm(Form& form) const
 		}
 	}
 }
-
-// void	Bureaucrat::signForm(bool getIsSigned, std::string name) const
-// {
-// 	if (!getIsSigned)
-// 	{
-// 		std::cout << this->name << " signed " << name << std::endl;
-// 	}
-// 	else
-// 	{
-// 		std::cerr << this->name + " couldnt sign " << name << "because he has not the higher grade" << std::endl;
-// 	}
-// }

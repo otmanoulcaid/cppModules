@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 19:20:47 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 13:00:06 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 03:31:36 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,32 @@
 
 Intern::Intern(void)
 {
-	std::cout << "Intern defualt constructor is called" << std::endl;
+	// std::cout << "Intern defualt constructor is called" << std::endl;
 }
 
 Intern::~Intern(void)
 {
-	std::cout << "Intern destructor is called" << std::endl;
+	// std::cout << "Intern destructor is called" << std::endl;
 }
 
 Intern::Intern(const Intern& intern)
 {
-	std::cout << "Intern copy constructor is called" << std::endl;
+	(void)intern;
+	// std::cout << "Intern copy constructor is called" << std::endl;
 }
 
 Intern&	Intern::operator=(const Intern& intern)
 {
-	std::cout << "Intern copy assignement operator is called" << std::endl;
+	(void)intern;
+	// std::cout << "Intern copy assignement operator is called" << std::endl;
+	return *this;
 }
 
-AForm	*makeForm(std::string name, std::string target)
+AForm	*Intern::makeForm(std::string name, std::string target)
 {
-	int	i;
+	int	i = -1;
 	std::string forms[] = {"RobotomyRequestForm", "ShrubberyCreationForm", "PresidentialPardonForm"};
-	for (i = 0; i < 3, target.compare(forms[i]); i++);
+	while (++i < 3 && target.compare(forms[i]));
 	switch (i)
 	{
 		case 0 :

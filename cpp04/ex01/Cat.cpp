@@ -2,6 +2,7 @@
 
 Cat::Cat(void)
 {
+	this->brain = NULL;
     std::cout << "Cat default constructor is called" << std::endl;
     this->type = "Cat";
     this->brain = new Brain();
@@ -9,7 +10,7 @@ Cat::Cat(void)
 
 Cat::~Cat(void)
 {
-	if (!this->brain)
+	if (this->brain)
     	delete brain;
     std::cout << "Cat destructor is called" << std::endl;
 }

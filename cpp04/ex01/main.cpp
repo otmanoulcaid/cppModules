@@ -10,7 +10,10 @@ int main()
 	for (int i = 5; i < 10; i++)
 		animal[i] = new Cat();
 	for (int i = 0; i < 10; i++)
+	{
 		std::cout << animal[i]->getType() << std::endl;
+		animal[i]->makeSound();
+	}
 	for (int i = 0; i < 10; i++)
 		delete animal[i];
 	return 0;

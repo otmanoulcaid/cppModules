@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/08/17 16:27:36 by ooulcaid          #+#    #+#              #
+#    Updated: 2024/08/17 16:27:37 by ooulcaid         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = c++ -std=c++98 -Wall -Wextra -Werror
 
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
@@ -8,7 +20,7 @@ NAME = ScavTrap
 
 all : $(NAME)
 
-%.o :%.cpp Zombie.hpp
+%.o :%.cpp ClapTrap.hpp ScavTrap.hpp
 	$(CC) -c $< -o $@
 
 $(NAME) : $(OBJ)

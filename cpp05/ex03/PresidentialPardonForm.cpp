@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 18:56:14 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 12:32:02 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 02:03:43 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 	
 PresidentialPardonForm::PresidentialPardonForm(void)
 {
-	std::cout << "default constructor is called" << std::endl;
+	// std::cout << "default constructor is called" << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(void)
@@ -30,13 +30,13 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : target(targ
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & PPForm)
 {
-	std::cout << "copy constructor is called" << std::endl;
+	// std::cout << "copy constructor is called" << std::endl;
 	*this = PPForm;
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm const & PPForm)
 {
-	std::cout << "copy constructor is called" << std::endl;
+	// std::cout << "copy constructor is called" << std::endl;
 	if (this != &PPForm)
 		this->setIsSigned(PPForm.getIsSigned());
 	return *this;

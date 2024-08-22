@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/17 16:27:29 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/17 16:27:30 by ooulcaid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef __ClapTrap_H__
 
 # define __ClapTrap_H__
@@ -6,13 +18,13 @@
 class ClapTrap
 {
 	protected:
-		std::string name;
-		int         __hitPoint;
-		int         __energyPoint;
-		int         __attackDamage;
+		std::string		name;
+		unsigned int	hitPoint;
+		unsigned int	energyPoint;
+		unsigned int	attackDamage;
 
 	public:
-		ClapTrap(std::string name, int hit, int energy, int damage);
+		ClapTrap(std::string name);
 		ClapTrap();
 		~ClapTrap();
 		ClapTrap(const ClapTrap& clap);
@@ -20,6 +32,7 @@ class ClapTrap
 		void		attack(const std::string& target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
+		void		setName(std::string name);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 18:55:55 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 12:31:56 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 03:19:24 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	if (!this->getIsSigned())
 		throw std::runtime_error("the form " + this->target + " not signed yet");
 	std::cout << "yaaaaaa waaaaa yooooo" << std::endl;
+	std::srand(std::time(NULL));
+	if (std::rand() % 100 < 50)
+		throw std::runtime_error("robotomy failed");
+	std::cout << this->target << " has been robotomized successfully" << std::endl;
 }
 
 void	RobotomyRequestForm::beSigned(const Bureaucrat& bureau)

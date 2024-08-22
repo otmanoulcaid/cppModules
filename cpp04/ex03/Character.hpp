@@ -11,6 +11,7 @@ class Character : public ICharacter
 	private:
 		std::string	name;
 		AMateria	*invent[4];
+		AMateria	*inventSave[4];
 
 	public:
 		Character(std::string name);

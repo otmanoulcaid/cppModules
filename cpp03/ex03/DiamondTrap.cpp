@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/17 16:34:53 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/17 17:00:52 by ooulcaid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(void)
@@ -5,12 +17,12 @@ DiamondTrap::DiamondTrap(void)
 	std::cout << "DiamondTrap default constructor is called" << std::endl;
 }
 
-DiamondTrap:: DiamondTrap(std::string name)
+DiamondTrap:: DiamondTrap(std::string name) 
 {
 	this->name = name;
-	this->__hitPoint = 100;
-	this->__energyPoint = 50;
-	this->__attackDamage = 30;
+	this->hitPoint = 100;
+	this->energyPoint = 50;
+	this->attackDamage = 30;
 	ClapTrap::name = name.append("_clap_name");
 	std::cout << "DiamondTrap constructor is called" << std::endl;
 }
@@ -32,19 +44,19 @@ DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& trap)
 	if (this != &trap)
 	{
 		this->name = trap.name;
-		this->__attackDamage = trap.__attackDamage;
-		this->__hitPoint = trap.__hitPoint;
-		this->__energyPoint = trap.__energyPoint;
+		this->attackDamage = trap.attackDamage;
+		this->hitPoint = trap.hitPoint;
+		this->energyPoint = trap.energyPoint;
 	}
 	return *this;
 }
 
-int	DiamondTrap::get(void)
-{
-	return (this->__hitPoint);
-}
-
 void	DiamondTrap::WhoAmI(void)
 {
-	std::cout << "DiamondTrap name " << this->name << " >>>><<<< ClapTrap Name " << ClapTrap::name << std::endl;
+	std::cout << "DiamondTrap name >>>> " << this->name << " <<<< ClapTrap Name >>>> " << ClapTrap::name << " <<<< " << std::endl;
+}
+
+void	DiamondTrap::attack(const std::string& target)
+{
+	ScavTrap::attack(target);
 }

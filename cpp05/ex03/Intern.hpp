@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 19:20:50 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 12:45:42 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 03:30:55 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 # define __INTERN_HPP__
 # include <iostream>
 
-
-
 class Intern
 {
 	public:
@@ -24,7 +22,7 @@ class Intern
 		~Intern(void);
 		Intern(const Intern& intern);
 		Intern& operator=(const Intern& intern);
-		void	makeForm(std::string name, std::string target);
+		AForm	*makeForm(std::string name, std::string target);
 };
 
 #endif

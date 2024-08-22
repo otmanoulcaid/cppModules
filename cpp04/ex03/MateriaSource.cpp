@@ -32,11 +32,10 @@ MateriaSource& MateriaSource::operator=(MateriaSource& materia)
 	{
 		for (int i = 0; i < 4; i++)
 		{
+			if (this->materia[i])
+				delete this->materia[i];
 			if (materia.materia[i])
-			{
-				AMateria *ptr = this->materia[i]->clone();
-				this->materia[i] = ptr;
-			}
+				this->materia[i] = materia.materia[i]->clone();
 		}
 	}
 	return *this;

@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 18:55:55 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 12:31:56 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 02:03:25 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm(void)
 {
-	std::cout << "default constructor is called" << std::endl;
+	// std::cout << "default constructor is called" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(void)
@@ -30,13 +30,13 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : target(target)
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & PPForm)
 {
-	std::cout << "copy constructor is called" << std::endl;
+	// std::cout << "copy constructor is called" << std::endl;
 	*this = PPForm;
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const & PPForm)
 {
-	std::cout << "copy constructor is called" << std::endl;
+	// std::cout << "copy constructor is called" << std::endl;
 	if (this != &PPForm)
 		this->setIsSigned(PPForm.getIsSigned());
 	return *this;

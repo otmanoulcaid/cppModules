@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+// /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
@@ -15,7 +15,7 @@
 #include <iostream>
 ShrubberyCreationForm::ShrubberyCreationForm(void)
 {
-	std::cout << "default constructor is called" << std::endl;
+	// std::cout << "default constructor is called" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
@@ -30,13 +30,13 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : target(target
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & PPForm)
 {
-	std::cout << "copy constructor is called" << std::endl;
+	// std::cout << "copy constructor is called" << std::endl;
 	*this = PPForm;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm const & PPForm)
 {
-	std::cout << "copy constructor is called" << std::endl;
+	// std::cout << "copy constructor is called" << std::endl;
 	if (this != &PPForm)
 		this->setIsSigned(PPForm.getIsSigned());
 	return *this;

@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 08:45:38 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 11:35:49 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 02:02:42 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 Bureaucrat::Bureaucrat(void)
 {
-	std::cout << "Bureaucrat defualt constructor is called" << std::endl;
+	// std::cout << "Bureaucrat defualt constructor is called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
-	std::cout << "Bureaucrat constructor is called" << std::endl;
+	// std::cout << "Bureaucrat constructor is called" << std::endl;
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException("grade is too Low");
 	else if (grade < 1)
@@ -31,7 +31,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Bureaucrat destructor is called" << std::endl;
+	// std::cout << "Bureaucrat destructor is called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat)

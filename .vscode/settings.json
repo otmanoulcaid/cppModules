@@ -67,6 +67,7 @@
 		"vector": "cpp",
 		"filesystem": "cpp",
 		"list": "cpp",
-		"span": "cpp"
+		"span": "cpp",
+		"wait.h": "c"
 	}
 }

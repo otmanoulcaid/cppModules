@@ -13,38 +13,41 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm(const std::string name, const int gradeSign, const int gradeExec, bool isSigned) : 
+AForm::AForm(const std::string name, const int gradeSign, const int gradeExec) : 
 name(name), 
 gradeSign(gradeSign), 
-gradeExec(gradeExec), 
-isSigned(isSigned)
+gradeExec(gradeExec)
 {
-	std::cout << "default consructor is called" << std::endl;
+	// std::cout << "default consructor is called" << std::endl;
 	if (this->gradeSign < 1)
 		throw AForm::GradeTooHighException("Oops!! grade too High");
 	if (this->gradeSign > 150)
 		throw AForm::GradeTooLowException("Oops!! grade too low");
+	this->isSigned = false;
 }
 
 AForm::AForm(void) : gradeSign(0), gradeExec(0)
 {
-	std::cout << "default consructor is called" << std::endl;
+	// std::cout << "default consructor is called" << std::endl;
 }
 
 AForm::~AForm(void)
 {
-	std::cout << "AForm desructor is called" << std::endl;
+	// std::cout << "AForm desructor is called" << std::endl;
 }
 
-AForm::AForm(const AForm& form) : name(form.name), gradeSign(form.gradeSign), gradeExec(form.gradeExec)
+AForm::AForm(const AForm& form) : 
+name(form.name), 
+gradeSign(form.gradeSign),
+gradeExec(form.gradeExec)
 {
-	std::cout << "Form desructor is called" << std::endl;
+	// std::cout << "Form desructor is called" << std::endl;
 	this->isSigned = form.getIsSigned();
 }
 
 AForm&	AForm::operator=(const AForm& form)
 {
-	std::cout << "Copy assignement operator is called" << std::endl;
+	// std::cout << "Copy assignement operator is called" << std::endl;
 	if (this != &form)
 		this->isSigned = form.getIsSigned();
 	return (*this);

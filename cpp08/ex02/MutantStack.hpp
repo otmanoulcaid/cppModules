@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 09:34:44 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/16 16:48:56 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/08/16 21:11:44 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 template <typename T>
 class MutantStack : public std::stack<T>
 {
-	typedef typename std::deque<T>::iterator iterator;
 	public:
+		typedef typename std::deque<T>::iterator iterator;
 		MutantStack(void){};
 		~MutantStack(void){};
 		MutantStack(const MutantStack& stack)
@@ -33,7 +33,7 @@ class MutantStack : public std::stack<T>
 		{
 			if (this != &stack)
 			{
-				iterator it = stack.c.beging();
+				iterator it = stack.c.begin();
 				this->c.clear();
 				while (it != stack.c.end())
 					this->c.push_back(*it++);
