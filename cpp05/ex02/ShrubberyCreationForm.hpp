@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 18:44:34 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 12:14:44 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 12:14:25 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 # include <iostream>
 # include <fstream>
 # include "AForm.hpp"
-# define S_SIGN 145
-# define S_EXEC 137
 
 class Bureaucrat;
 class ShrubberyCreationForm : public AForm
 {
 	private : 
 		std::string target;
+		int			gradeExec;
+		int			gradeSign;
+
 	public :
 		ShrubberyCreationForm(void);
 		~ShrubberyCreationForm(void);

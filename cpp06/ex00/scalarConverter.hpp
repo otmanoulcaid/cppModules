@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:21:41 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/12 10:21:20 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/23 16:22:51 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,31 @@
 # define __SCALAR_CONVERTER_HPP__
 # include <iostream>
 # include <sstream>
-
+# include <iomanip>
+# include <cfloat>
 
 enum dataType
 {
-	dChar,
-	dInt,
-	dFloat,
-	dDouble,
-	pInf,
-	nInf,
-	dNan
+	eChar,
+	eInt,
+	eFloat,
+	eDouble,
+	eInf,
+	eNan,
+	eNanf,
+	eError
 };
 
-class scalarConverter
+class ScalarConverter
 {
 	private :
-		scalarConverter(void);
-		scalarConverter(const scalarConverter& scalar);
-		~scalarConverter(void);
-		scalarConverter& operator=(const scalarConverter& scalar);
+		ScalarConverter(void);
+		ScalarConverter(const ScalarConverter& scalar);
+		~ScalarConverter(void);
+		ScalarConverter& operator=(const ScalarConverter& scalar);
 
 	public:
-		static dataType convert(std::string str);
+		static void convert(char *strFormat);
 };
 
 #endif

@@ -13,17 +13,17 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm(const std::string name, const int gradeSign, const int gradeExec, bool isSigned) : 
+AForm::AForm(const std::string name, const int gradeSign, const int gradeExec) :
 name(name), 
 gradeSign(gradeSign), 
-gradeExec(gradeExec), 
-isSigned(isSigned)
+gradeExec(gradeExec)
 {
 	// std::cout << "default consructor is called" << std::endl;
 	if (this->gradeSign < 1)
 		throw AForm::GradeTooHighException("Oops!! grade too High");
 	if (this->gradeSign > 150)
 		throw AForm::GradeTooLowException("Oops!! grade too low");
+	this->isSigned = false;
 }
 
 AForm::AForm(void) : gradeSign(0), gradeExec(0)

@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 19:20:47 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/09/22 03:31:36 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 14:57:13 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
-
 
 Intern::Intern(void)
 {
@@ -41,23 +40,31 @@ Intern&	Intern::operator=(const Intern& intern)
 	return *this;
 }
 
+
+AForm *Intern::newFormR(std::string name)
+{
+	return new RobotomyRequestForm(name);
+}
+
+AForm *Intern::newFormS(std::string name)
+{
+	return new ShrubberyCreationForm(name);
+}
+
+AForm *Intern::newFormP(std::string name)
+{
+	return new PresidentialPardonForm(name);
+}
+
 AForm	*Intern::makeForm(std::string name, std::string target)
 {
 	int	i = -1;
+	AForm *(Intern::*f[3])(std::string target) = {&Intern::newFormR, &Intern::newFormS, &Intern::newFormP};
 	std::string forms[] = {"RobotomyRequestForm", "ShrubberyCreationForm", "PresidentialPardonForm"};
-	while (++i < 3 && target.compare(forms[i]));
-	switch (i)
-	{
-		case 0 :
-			return new RobotomyRequestForm(name);
-		case 1 :
-			return new ShrubberyCreationForm(name);
-		case 2 :
-			return new PresidentialPardonForm(name);
-		default:
-		{
-			std::cout << "form target does not exist" << std::endl;
-			return NULL;
-		}
-	}
+	while (++i < 3 && name.compare(forms[i]))
+		;
+	if (i < 3)
+		return (this->*f[i])(target);
+	std::cout << "the form " << name << " does not exist" << std::endl;
+	return (NULL);
 }

@@ -6,15 +6,24 @@
 #    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/04 19:14:33 by ooulcaid          #+#    #+#              #
-#    Updated: 2024/08/11 11:49:55 by ooulcaid         ###   ########.fr        #
+#    Updated: 2024/09/22 13:54:36 by ooulcaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++ -std=c++98 -Wall -Wextra -Werror
 
-SRC = AForm.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp Bureaucrat.cpp RobotomyRequestForm.cpp main.cpp
+SRC = main.cpp\
+	AForm.cpp  \
+	Bureaucrat.cpp \
+	RobotomyRequestForm.cpp \
+	ShrubberyCreationForm.cpp \
+	PresidentialPardonForm.cpp \
 
-HEADERS =  AForm.hpp PresidentialPardonForm.hpp ShrubberyCreationForm.hpp Bureaucrat.hpp RobotomyRequestForm.hpp
+HEADERS =  AForm.hpp \
+	Bureaucrat.hpp \
+	RobotomyRequestForm.hpp \
+	ShrubberyCreationForm.hpp \
+	PresidentialPardonForm.hpp \
 
 OBJ = ${SRC:.cpp=.o}
 

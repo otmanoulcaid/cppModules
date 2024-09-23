@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:30:43 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/15 11:26:40 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:16:38 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Serializer::~Serializer(void)
 Serializer::Serializer(const Serializer& serializer)
 {
 	// std::cout << "Serializer copy constructor is called" << std::endl;
-	*this = serializer;
+	(void)serializer;
 }
 
 Serializer&		Serializer::operator=(const Serializer& serializer)

@@ -6,13 +6,13 @@
 #    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/11 14:35:53 by ooulcaid          #+#    #+#              #
-#    Updated: 2024/08/11 21:25:11 by ooulcaid         ###   ########.fr        #
+#    Updated: 2024/09/23 09:42:18 by ooulcaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++ -std=c++98 -Wall -Wextra -Werror
 
-SRC = scalarConverter.cpp Converter.cpp main.cpp
+SRC = ScalarConverter.cpp main.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
@@ -20,7 +20,7 @@ NAME = convert
 
 all : $(NAME)
 
-%.o : %.cpp scalarConverter.hpp Converter.hpp
+%.o : %.cpp ScalarConverter.hpp
 	$(CPP) -c $< -o $@
 
 $(NAME) : $(OBJ)

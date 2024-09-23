@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:46:54 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/15 12:42:54 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:44:06 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int main(void)
 	Base *basePtr;
 	basePtr = bObj.generate();
 	bObj.identify(basePtr);
-	free(basePtr);
+	bObj.identify(NULL);
+	delete(basePtr);
 	std::cout << "----------------------" << std::endl;
 	std::cout << ">>>> identify using reference <<<<" << std::endl;
 	A a;

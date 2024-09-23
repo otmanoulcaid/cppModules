@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 08:46:01 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/09/22 02:52:08 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 15:40:56 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,32 @@ int main()
 {
 	try
 	{
-		Bureaucrat bureau0("hamada", 1);
+		Bureaucrat bureau0("jhon", 1);
 		std::cout << bureau0 << std::endl;
 		bureau0.incremet();
-		// Bureaucrat bureau1("hamada", -1);
-		// Bureaucrat bureau2("hamada", 150);
-		// bureau2.decremet();
 	}
-	catch(Bureaucrat::GradeTooHighException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	catch(Bureaucrat::GradeTooLowException& e)
+	std::cout << "---------------------------" << std::endl;
+	try
 	{
-		std::cerr << e.what() << std::endl;
+		Bureaucrat bureau1("jhon", -1);
 	}
-	catch(...)
+	catch(std::exception &e1)
 	{
-		std::cerr << " ==== !!! === "<< std::endl;
+		std::cerr << e1.what() << std::endl;
+	}
+	std::cout << "---------------------------" << std::endl;
+	try
+	{
+		Bureaucrat bureau2("jhon", 150);
+		std::cout << bureau2 << std::endl;
+		bureau2.decremet();
+	}
+	catch(std::exception &e2)
+	{
+		std::cerr << e2.what() << std::endl;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 18:35:40 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 12:14:36 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 13:50:13 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,24 @@
 # define __P_P_FORM_HPP__
 # include <iostream>
 # include "AForm.hpp"
-# define P_SIGN 25
-# define P_EXEC 5
 
 class Bureaucrat;
 class PresidentialPardonForm : public AForm
 {
-	private : 
+	private :
 		std::string target;
+		int			gradeExec;
+		int			gradeSign;
+
 	public :
 		PresidentialPardonForm(void);
 		~PresidentialPardonForm(void);
-		PresidentialPardonForm(std::string);
+		PresidentialPardonForm(std::string name);
 		PresidentialPardonForm(PresidentialPardonForm const & PPForm);
 		PresidentialPardonForm& operator=(PresidentialPardonForm const & PPForm);
-		void	execute(Bureaucrat const & executor) const;
-		void	beSigned(const Bureaucrat& bureau);
+		void		execute(Bureaucrat const & executor) const;
+		void		beSigned(const Bureaucrat& bureau);
+		std::string	getTarget(void);
 };
 
 #endif

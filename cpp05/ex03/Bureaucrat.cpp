@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 08:45:38 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/09/22 02:02:42 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 13:18:39 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	Bureaucrat::signForm(AForm& form) const
 		try
 		{
 			form.beSigned(*this);
-			std::cout << this->name << " signed " << form.getName() << std::endl;
+			std::cout << this->name << " signed the form " << form.getName() << std::endl;
 		}
 		catch(const AForm::GradeTooLowException& e)
 		{
@@ -118,6 +118,5 @@ void	Bureaucrat::executeForm(AForm const & form)
 	if (this->grade > form.getGradeSign())
 		throw AForm::GradeTooLowException("you are not allowed to sign the form");
 	form.execute(*this);
-	
-	std::cout << this->name << " executed " << form.getName() << std::endl; 
+	std::cout << this->name << " execute the form " << form.getName() << std::endl; 
 }

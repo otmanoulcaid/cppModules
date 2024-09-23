@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:41:45 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/15 12:14:30 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:42:09 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 
 class Base;
 class C : public Base
-{
-	public:C(void){};
-};
+{};
 
 #endif

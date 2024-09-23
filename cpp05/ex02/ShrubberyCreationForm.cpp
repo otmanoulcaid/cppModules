@@ -6,14 +6,15 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 18:55:37 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/09/22 01:39:19 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 14:30:00 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 #include <iostream>
-ShrubberyCreationForm::ShrubberyCreationForm(void)
+
+ShrubberyCreationForm::ShrubberyCreationForm(void) : gradeExec(137), gradeSign(145)
 {
 	std::cout << "default constructor is called" << std::endl;
 }
@@ -23,7 +24,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 	// std::cout << "destructor is called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : target(target), gradeExec(137), gradeSign(145)
 {
 	// std::cout << "param constructor is called" << std::endl;
 }
@@ -44,7 +45,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.getGrade() > S_SIGN)
+	if (executor.getGrade() > this->gradeExec)
 		throw (AForm::GradeTooLowException("Oops !! grade too low "));
 	if (!this->getIsSigned())
 		throw std::runtime_error("the form " + this->target + " not signed yet");
@@ -64,13 +65,12 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	outFile << "                |||                  " << std::endl;
 	outFile << "               /|||\\                " << std::endl;
 	outFile << "==============/=====\\===============" << std::endl;
+	outFile.close();
 }
-
-
 
 void	ShrubberyCreationForm::beSigned(const Bureaucrat& bureau)
 {
-	if (bureau.getGrade() > S_SIGN)
+	if (bureau.getGrade() > this->gradeSign)
 		throw (AForm::GradeTooLowException("grade is too low"));
 	this->setIsSigned(true);
 }

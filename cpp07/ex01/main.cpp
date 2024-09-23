@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:23:35 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/14 21:09:56 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/23 17:54:12 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void upper(char c)
 
 void odds(int nbr)
 {
-	
 	std::cout << (nbr % 2 ? nbr : 0);
 }
 

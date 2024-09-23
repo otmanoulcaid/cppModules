@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:43:22 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/15 12:39:16 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:33:00 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "B.hpp"
 #include "C.hpp"
 
-Base::Base(void){}
 Base::~Base(void){}
 
 Base *Base::generate(void)
@@ -27,14 +26,12 @@ Base *Base::generate(void)
 	randomValue = rand()%3;
 	switch (randomValue)
 	{
-	case 0:
-		base = new A();
-		break;
-	case 1:
-		base = new B();
-		break;
-	case 2:
-		base = new C();
+		case 0:
+			return new A();
+		case 1:
+			return new B();
+		case 2:
+			base = new C();
 	}
 	return base;
 }

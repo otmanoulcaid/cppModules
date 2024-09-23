@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 18:39:40 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 12:14:40 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 13:50:05 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,23 @@
 # define __R_R_FORM_HPP__
 # include <iostream>
 # include "AForm.hpp"
-# define R_SIGN 72
-# define R_EXEC 45
 
 class Bureaucrat;
 class RobotomyRequestForm : public AForm
 {
-	private : 
+	private :
 		std::string target;
+		int			gradeExec;
+		int			gradeSign;
 	public :
 		RobotomyRequestForm(void);
 		~RobotomyRequestForm(void);
-		RobotomyRequestForm(std::string);
+		RobotomyRequestForm(std::string name);
 		RobotomyRequestForm(RobotomyRequestForm const & PPForm);
 		RobotomyRequestForm& operator=(RobotomyRequestForm const & PPForm);
-		void	execute(Bureaucrat const & executor) const;
-		void	beSigned(const Bureaucrat& bureau);
+		void		execute(Bureaucrat const & executor) const;
+		void		beSigned(const Bureaucrat& bureau);
+		std::string	getTarget(void);
 };
 
 #endif

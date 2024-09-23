@@ -6,14 +6,14 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 18:55:55 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/09/22 03:19:24 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 12:14:15 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void)
+RobotomyRequestForm::RobotomyRequestForm(void) : gradeExec(45), gradeSign(72)
 {
 	std::cout << "default constructor is called" << std::endl;
 }
@@ -23,7 +23,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 	// std::cout << "destructor is called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : target(target), gradeExec(45), gradeSign(72)
 {
 	// std::cout << "param constructor is called" << std::endl;
 }
@@ -44,7 +44,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const & 
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.getGrade() > R_SIGN)
+	if (executor.getGrade() > this->gradeExec)
 		throw (AForm::GradeTooLowException("Oops !! grade too low "));
 	if (!this->getIsSigned())
 		throw std::runtime_error("the form " + this->target + " not signed yet");
@@ -57,7 +57,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 
 void	RobotomyRequestForm::beSigned(const Bureaucrat& bureau)
 {
-	if (bureau.getGrade() > R_SIGN)
+	if (bureau.getGrade() > this->gradeSign)
 		throw (AForm::GradeTooLowException("grade is too low"));
 	this->setIsSigned(true);
 }

@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 20:24:15 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/09/22 02:54:23 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 15:52:55 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ gradeSign(gradeSign),
 gradeExec(gradeExec)
 {
 	// std::cout << "default consructor is called" << std::endl;
-	if (this->gradeSign < 1)
+	if (gradeSign < 1 || gradeExec < 1)
 		throw Form::GradeTooHighException("Oops!! grade too High");
-	if (this->gradeSign > 150)
+	if (gradeSign > 150 || gradeExec > 150)
 		throw Form::GradeTooLowException("Oops!! grade too low");
 	this->isSigned = false;
 }
 
-Form::Form(void) : gradeSign(0), gradeExec(0)
+Form::Form(void) : gradeSign(1), gradeExec(1)
 {
 	// std::cout << "default consructor is called" << std::endl;
 }

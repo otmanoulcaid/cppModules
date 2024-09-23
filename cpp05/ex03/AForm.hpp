@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 21:37:38 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 12:14:59 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/22 15:21:39 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ private:
 public:
 	/*--------------cnstructors----------------*/
 	AForm(void);
-	~AForm(void);
+	virtual ~AForm(void);
 	AForm(const AForm& Aform);
 	AForm& operator=(const AForm& Aform);
-	AForm(const std::string name, const int gradeSign, const int gradeExec, bool isSigned);
+	AForm(const std::string name, const int gradeSign, const int gradeExec);
 	
 	/*------------MemberFunctions-----------*/
 	virtual void	beSigned(const Bureaucrat& bureau);
 	virtual void	execute(Bureaucrat const & executor) const = 0;
-	
+
 	/*-------------GETTERS--------------*/
 	int			getGradeSign(void) const;
 	int			getGradeExec(void) const;
