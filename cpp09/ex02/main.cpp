@@ -5,18 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 14:37:28 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/09/23 21:38:59 by ooulcaid         ###   ########.fr       */
+/*   Created: 2024/09/24 16:19:11 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/09/24 16:25:10 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "PmergeMe.hpp"
 
-int main(int ac, char **av)
+int	main()
 {
-	if (ac == 2)
-		ScalarConverter::convert(av[1]);
-	else
-		std::cerr << "bad usage: ./convert arg" << std::endl;
+	PmergeMe mrg;
 	return (0);
 }

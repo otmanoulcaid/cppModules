@@ -6,7 +6,7 @@
 #    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/11 14:35:53 by ooulcaid          #+#    #+#              #
-#    Updated: 2024/09/23 09:42:18 by ooulcaid         ###   ########.fr        #
+#    Updated: 2024/09/23 21:22:09 by ooulcaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = convert
 
 all : $(NAME)
 
-%.o : %.cpp ScalarConverter.hpp
+%.o : %.cpp ScalarConverter.hpp DataTypeEnum.hpp
 	$(CPP) -c $< -o $@
 
 $(NAME) : $(OBJ)

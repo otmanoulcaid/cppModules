@@ -5,22 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/15 11:34:11 by ooulcaid          #+#    #+#              #
-#    Updated: 2024/09/23 21:23:15 by ooulcaid         ###   ########.fr        #
+#    Created: 2024/09/24 08:09:25 by ooulcaid          #+#    #+#              #
+#    Updated: 2024/09/24 13:22:00 by ooulcaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++ -std=c++98 -Wall -Wextra -Werror
 
-SRC = Serializer.cpp main.cpp
+SRC = main.cpp RPN.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
-NAME = serializer
+NAME = RPN
 
 all : $(NAME)
 
-%.o : %.cpp Serializer.hpp Data.hpp
+%.o : %.cpp RPN.hpp
 	$(CPP) -c $< -o $@
 
 $(NAME) : $(OBJ)

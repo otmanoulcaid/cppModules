@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 14:37:28 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/09/23 21:38:59 by ooulcaid         ###   ########.fr       */
+/*   Created: 2024/09/24 15:56:20 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/09/24 15:59:02 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef __PMERGEME_HPP__
 
-int main(int ac, char **av)
+# define __PMERGEME_HPP__
+
+class PmergeMe
 {
-	if (ac == 2)
-		ScalarConverter::convert(av[1]);
-	else
-		std::cerr << "bad usage: ./convert arg" << std::endl;
-	return (0);
-}
+	private:
+		/* data */
+	public:
+		PmergeMe(void);
+		~PmergeMe(void);
+		PmergeMe(const PmergeMe& pmerge);
+		PmergeMe&	operator=(const PmergeMe& pmerge);
+};
+
+#endif
