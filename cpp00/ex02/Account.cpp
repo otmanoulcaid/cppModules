@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ACPPount.cpp                                        :+:      :+:    :+:   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,75 +10,75 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ACPPount.hpp"
+#include "Account.hpp"
 #include <iostream>
 
-int ACPPount::_nbACPPounts = 0;
-int ACPPount::_totalAmount = 0;
-int ACPPount::_totalNbDeposits = 0;
-int ACPPount::_totalNbWithdrawals = 0;
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
 
-ACPPount::ACPPount(int initial_deposit )
+Account::Account(int initial_deposit )
 {
 	t::_totalAmount += initial_deposit;
     this->_nbDeposits = 0;
     this->_nbWithdrawals = 0;
     this->_amount = initial_deposit;
-    this->_aCPPountIndex = t::_nbACPPounts++;
+    this->_accountIndex = t::_nbAccounts++;
     t::_displayTimestamp();
-    std::cout << "index:" << this->_aCPPountIndex;
+    std::cout << "index:" << this->_accountIndex;
     std::cout << ";amount:" << this->checkAmount();
     std::cout << ";created" << std::endl;
 }
 
-ACPPount::ACPPount( void )
+Account::Account( void )
 {
     std::cout << "the default constructor is called" << std::endl;
 }
 
-ACPPount::~ACPPount( void )
+Account::~Account( void )
 {
-    t::_nbACPPounts--;
+    t::_nbAccounts--;
     t::_displayTimestamp();
-    std::cout << "index:" << this->_aCPPountIndex;
+    std::cout << "index:" << this->_accountIndex;
     std::cout << ";amount:" << this->checkAmount();
     std::cout << ";closed" << std::endl;
 }
 
-int ACPPount::getNbACPPounts( void )
+int Account::getNbAccounts( void )
 {
-    return t::_nbACPPounts;
+    return t::_nbAccounts;
 }
 
-int ACPPount::getTotalAmount( void )
+int Account::getTotalAmount( void )
 {
     return t::_totalAmount;
 }
 
-int ACPPount::getNbDeposits( void )
+int Account::getNbDeposits( void )
 {
     return t::_totalNbDeposits;
 }
 
-int	ACPPount::getNbWithdrawals(void)
+int	Account::getNbWithdrawals(void)
 {
     return t::_totalNbWithdrawals;
 }
 
-void	ACPPount::displayACPPountsInfos(void)
+void	Account::displayAccountsInfos(void)
 {
     t::_displayTimestamp();
-    std::cout << "aCPPounts:" << t::_nbACPPounts;
+    std::cout << "accounts:" << t::_nbAccounts;
     std::cout << ";total:" << t::_totalAmount;
     std::cout << ";deposits:" << t::_totalNbDeposits;
     std::cout << ";withdrawals:" << t::_totalNbWithdrawals << std::endl;
 	t::_totalAmount = 0;
 }
 
-void	ACPPount::makeDeposit( int deposit )
+void	Account::makeDeposit( int deposit )
 {
     t::_displayTimestamp();
-    std::cout << "index:" << this->_aCPPountIndex;
+    std::cout << "index:" << this->_accountIndex;
     std::cout << ";p_amount:" << this->checkAmount();
     std::cout << ";deposit:" << deposit;
 	this->_amount += deposit;
@@ -88,10 +88,10 @@ void	ACPPount::makeDeposit( int deposit )
 	t::_totalNbDeposits++;
 }
 
-bool	ACPPount::makeWithdrawal( int withdrawal )
+bool	Account::makeWithdrawal( int withdrawal )
 {
     t::_displayTimestamp();
-    std::cout << "index:" << this->_aCPPountIndex;
+    std::cout << "index:" << this->_accountIndex;
     std::cout << ";p_amount:" << this->checkAmount();
     std::cout << ";withdrawal:";
 	this->_totalAmount += this->checkAmount();
@@ -110,21 +110,21 @@ bool	ACPPount::makeWithdrawal( int withdrawal )
     return true;
 }
 
-int		ACPPount::checkAmount( void ) const
+int		Account::checkAmount( void ) const
 {
     return (this->_amount);
 }
 
-void	ACPPount::displayStatus( void ) const
+void	Account::displayStatus( void ) const
 {
     t::_displayTimestamp();
-    std::cout << "index:" << this->_aCPPountIndex;
+    std::cout << "index:" << this->_accountIndex;
     std::cout << ";amount:" << this->checkAmount();
     std::cout << ";deposits:" << this->_nbDeposits;
     std::cout << ";withdrawals:" << this->_nbWithdrawals << std::endl;
 }
 
-void	ACPPount::_displayTimestamp( void )
+void	Account::_displayTimestamp( void )
 {
     time_t  tmp;
     tm      *timer;

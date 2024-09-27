@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 09:34:44 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/16 21:11:44 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/27 14:18:32 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,19 @@
 # define __MUTANSTACK_HPP__
 # include <iostream>
 # include <deque>
+# include <vector>
+# include <list>
 # include <stack>
 # include <algorithm>
 
-template <typename T>
-class MutantStack : public std::stack<T>
+template <typename T, typename C>
+class MutantStack : public std::stack<T, C>
 {
 	public:
-		typedef typename std::deque<T>::iterator iterator;
+		typedef typename C::iterator iterator;
+		typedef typename C::reverse_iterator riterator;
+		typedef typename C::const_iterator citerator;
+		typedef typename C::const_reverse_iterator criterator;
 		MutantStack(void){};
 		~MutantStack(void){};
 		MutantStack(const MutantStack& stack)
@@ -33,8 +38,8 @@ class MutantStack : public std::stack<T>
 		{
 			if (this != &stack)
 			{
-				iterator it = stack.c.begin();
 				this->c.clear();
+				iterator it = stack.c.begin();
 				while (it != stack.c.end())
 					this->c.push_back(*it++);
 			}
@@ -42,8 +47,12 @@ class MutantStack : public std::stack<T>
 		};
 		iterator begin(void){return this->c.begin();}
 		iterator end(void){return this->c.end();}
-		iterator rbegin(void){return this->c.rbegin();}
-		iterator rend(void){return this->c.rend();}
+		riterator rbegin(void){return this->c.rbegin();}
+		riterator rend(void){return this->c.rend();}
+		citerator cbegin(void){return this->c.cbegin();}
+		citerator cend(void){return this->c.cend();}
+		criterator crbegin(void){return this->c.crbegin();}
+		criterator crend(void){return this->c.crend();}
 };
 
 #endif

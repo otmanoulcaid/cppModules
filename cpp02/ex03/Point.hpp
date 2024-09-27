@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/05 16:07:06 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/05 16:15:35 by ooulcaid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef __POINT_HPP__
 
 # define __POINT_HPP__
@@ -12,12 +24,10 @@ class Point
 
 	public:
 		Point();
-		Point(Fixed const x, Fixed const y);
+		Point(float const x, float const y);
 		~Point();
 		Point(const Point & point);
 		Point&	operator=(const Point & point);
 };
-
-bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif

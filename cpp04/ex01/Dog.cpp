@@ -19,11 +19,16 @@ Dog::Dog(Dog& Dog)
     *this = Dog;
 }
 
-Dog& Dog::operator=(Dog& Dog)
+Dog& Dog::operator=(Dog& dog)
 {
     std::cout << "Dog copy constructor is called" << std::endl;
-    if (this != &Dog)
-        this->type = Dog.type;
+    if (this != &dog)
+	{
+        this->type = dog.type;
+		delete this->brain;
+		this->brain = new Brain();
+		*(this->brain) = *(dog.brain);
+	}
     return *this;
 }
 

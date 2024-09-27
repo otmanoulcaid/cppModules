@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:28:16 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/09/24 18:41:01 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/25 08:40:30 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& scalarConvert
 	return *this;
 }
 
-int	ScalarConverter::validFormat(std::string strFormat)
+int	ScalarConverter::validNumber(std::string strFormat)
 {
 	int f = 0, d = 0;
 	size_t j = (strFormat[0] == '+' || strFormat[0] == '-') ? 0 : -1;
@@ -56,7 +56,7 @@ DataType	ScalarConverter::whichType(std::string strFormat)
 	if (!strFormat.compare("+inff") || !strFormat.compare("-inff") \
 		|| !strFormat.compare("+inf") || !strFormat.compare("-inf"))
 		return (eInf);
-	if (!validFormat(strFormat))
+	if (!validNumber(strFormat))
 		return (eError);
 	if (strFormat[strFormat.length() - 1] == 'f')
 		return (eFloat);
@@ -95,9 +95,9 @@ void	ScalarConverter::printFloat(DataType dt, char * strFormat)
 {
 	double d;
 	if (dt == eChar)
-		d = static_cast<float>(strFormat[0]);
+		d = static_cast<double>(strFormat[0]);
 	else
-		d = std::strtof(strFormat, NULL);
+		d = std::strtod(strFormat, NULL);
 	if (dt ==eInf || d > FLT_MAX || d < -FLT_MAX)
 	{
 		std::cout << "impossible" << std::endl;
@@ -114,7 +114,7 @@ void	ScalarConverter::printFloat(DataType dt, char * strFormat)
 
 void	ScalarConverter::printDouble(DataType dt, char *strFormat)
 {
-	long double d;
+	double d;
 	if (dt == eChar)
         d = static_cast<double>(strFormat[0]);
     else

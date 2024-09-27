@@ -6,7 +6,7 @@
 #    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/15 15:23:44 by ooulcaid          #+#    #+#              #
-#    Updated: 2024/08/15 15:43:32 by ooulcaid         ###   ########.fr        #
+#    Updated: 2024/09/27 14:34:15 by ooulcaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = easy
 
 all : $(NAME)
 
-main.o : main.cpp easyfind.hpp
+%.o : %.cpp easyfind.hpp
 	$(CPP) -c $< -o $@
 
 $(NAME) : $(OBJ)

@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:36:20 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/07/30 14:56:42 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/07/30 10:40:00 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main()
 {
 	PhoneBook 	phoneBook;
-	std::string	choice;
+	std::string choice;
 	int			i = 0;
 
 	while (1)

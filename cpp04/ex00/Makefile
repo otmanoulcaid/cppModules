@@ -8,7 +8,7 @@ NAME = Animals
 
 all : $(NAME)
 
-%.o :%.cpp Dog.hpp Cat.hpp Animal.hpp
+%.o :%.cpp Dog.hpp Cat.hpp Animal.hpp WrongAnimal.hpp WrongCat.hpp
 	$(CC) -c $< -o $@
 
 $(NAME) : $(OBJ)
@@ -21,3 +21,5 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+.PHONY : clean

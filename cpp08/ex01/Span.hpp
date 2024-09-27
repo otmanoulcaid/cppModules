@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 16:18:35 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/15 18:24:20 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/27 12:25:06 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 # include <iostream>
 # include <vector>
 
+typedef	std::vector<int>::iterator iterator; 
 class Span
 {
 	private:
-		long			nbrElements;
-		long			shortest;
-		unsigned int	longest;
+		long	nbrElements;
+		long	sorted;
 		std::vector<int>vect;
 	public:
 	/*-----------------constructors----------------*/
@@ -36,6 +36,8 @@ class Span
 		unsigned int	longestSpan(void);
 		unsigned int	shortestSpan(void);
 		void			addNumber(int	number);
+		iterator		begin(void);
+		iterator		end(void);
 		
 };
 

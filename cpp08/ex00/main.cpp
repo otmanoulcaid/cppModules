@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 15:07:48 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/15 16:14:44 by ooulcaid         ###   ########.fr       */
+/*   Created: 2024/09/27 14:43:17 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/09/27 14:43:19 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,24 @@
 # include <deque>
 # include <list>
 
+template<typename T>
+static void print(T begin, T end)
+{
+	while (begin != end)
+		std::cout << *(begin++) << "   ";
+	std::cout << std::endl;
+}
+
 int main(void)
 {
-	std::cout << ">>>> vector <<<<" << std::endl;
 	std::vector<int> vectContainer;
 	vectContainer.push_back(1);
 	vectContainer.push_back(2);
 	vectContainer.push_back(3);
 	try
 	{
+		std::cout << ">>>> vector <<<<" << std::endl;
+		print(vectContainer.begin(), vectContainer.end());
 		easyfind(vectContainer, 5);
 	}
 	catch(const std::exception& e)
@@ -40,6 +49,7 @@ int main(void)
 	listConatainer.push_back(6);
 	try
 	{
+		print(listConatainer.begin(), listConatainer.end());
 		easyfind(listConatainer, 5);
 	}
 	catch(const std::exception& e)
@@ -56,6 +66,7 @@ int main(void)
 	dequeContainer.push_back(9);
 	try
 	{
+		print(dequeContainer.begin(), dequeContainer.end());
 		easyfind(dequeContainer, 5);
 	}
 	catch(const std::exception& e)

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/05 16:07:02 by ooulcaid          #+#    #+#             */
+/*   Updated: 2024/08/05 16:23:39 by ooulcaid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Point.hpp"
 
 Point::Point() : x(0), y(0)
@@ -5,7 +17,7 @@ Point::Point() : x(0), y(0)
     std::cout << "Point default constructor is called" << std::endl;
 }
 
-Point::Point(Fixed const x, Fixed const y) : x(x), y(y)
+Point::Point(float const a, float const b) : x(a), y(b)
 {
 	std::cout << "Point constructor is called" << std::endl;
 }

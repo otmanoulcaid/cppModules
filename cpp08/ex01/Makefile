@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/15 17:46:54 by ooulcaid          #+#    #+#              #
-#    Updated: 2024/08/15 17:47:28 by ooulcaid         ###   ########.fr        #
+#    Created: 2024/09/27 14:43:40 by ooulcaid          #+#    #+#              #
+#    Updated: 2024/09/27 14:43:42 by ooulcaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC = main.cpp Span.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
-NAME = easy
+NAME = span
 
 all : $(NAME)
 

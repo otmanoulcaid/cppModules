@@ -6,25 +6,25 @@
 #    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/30 10:42:37 by ooulcaid          #+#    #+#              #
-#    Updated: 2024/08/01 12:42:43 by ooulcaid         ###   ########.fr        #
+#    Updated: 2024/07/30 10:42:38 by ooulcaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CPP = c++ -std=c++98 -Wall -Wextra -Werror
+CC = c++ -std=c++98 -Wall -Wextra -Werror
 
-SRC = ACPPount.cpp tests.cpp
+SRC = Account.cpp tests.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
-NAME = aCPPount
+NAME = account
 
 all : $(NAME)
 
-%.o :%.cpp ACPPount.hpp
-	$(CPP) -c $< -o $@
+%.o :%.cpp Account.hpp
+	$(CC) -c $< -o $@
 
 $(NAME) : $(OBJ)
-		$(CPP) $^ -o $(NAME)
+		$(CC) $^ -o $(NAME)
 
 clean :
 	rm -f $(OBJ)

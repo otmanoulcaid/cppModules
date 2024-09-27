@@ -6,7 +6,7 @@
 #    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/17 16:27:17 by ooulcaid          #+#    #+#              #
-#    Updated: 2024/08/17 16:27:18 by ooulcaid         ###   ########.fr        #
+#    Updated: 2024/08/17 17:57:17 by ooulcaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,3 +33,5 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+.PHONY : clean

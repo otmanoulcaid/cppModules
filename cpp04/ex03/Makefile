@@ -1,6 +1,6 @@
 CC = c++ -std=c++98 -Wall -Wextra -Werror
 
-SRC = AMateria.cpp Character.cpp ICharacter.cpp Cure.cpp Ice.cpp MateriaSource.cpp IMateriaSource.cpp main.cpp 
+SRC = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp 
 
 OBJ = ${SRC:.cpp=.o}
 
@@ -23,3 +23,5 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+.PHONY : clean

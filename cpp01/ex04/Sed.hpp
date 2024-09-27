@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:09:41 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/11 11:03:23 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/08/02 17:46:51 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Sed
 {
     private:
         std::ifstream   inStream; 
-        std::ofstream   outStream;
+        std::ofstream   outStream; 
         std::string     needle;
         std::string     haystack;
         std::string     infile;

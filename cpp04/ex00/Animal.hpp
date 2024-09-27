@@ -13,7 +13,7 @@ class Animal
 		Animal(Animal& animal);
 		Animal& operator=(Animal& animal);
 		virtual void	makeSound(void) const;
-		std::string     getType(void) const;
+		std::string     getType(void) const; 
 };
-
+ 
 #endif

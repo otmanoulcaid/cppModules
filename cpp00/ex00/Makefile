@@ -6,11 +6,11 @@
 #    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/30 10:43:09 by ooulcaid          #+#    #+#              #
-#    Updated: 2024/08/01 12:42:43 by ooulcaid         ###   ########.fr        #
+#    Updated: 2024/07/30 10:43:10 by ooulcaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CPP = c++ -std=c++98 -Wall -Wextra -Werror
+CC = c++ -std=c++98 -Wall -Wextra -Werror
 
 SRC = megaphone.cpp
 
@@ -21,10 +21,10 @@ NAME = megaphone
 all : $(NAME)
 
 $(OBJ) : $(SRC)
-	$(CPP) -c $< -o $@
+	$(CC) -c $< -o $@
 
 $(NAME) : $(OBJ)
-		$(CPP) $^ -o $(NAME)
+		$(CC) $^ -o $(NAME)
 
 clean :
 	rm -f $(OBJ)

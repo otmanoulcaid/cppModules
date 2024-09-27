@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 16:26:01 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/08/15 18:27:07 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/27 12:24:53 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Span::Span(void)
 	// std::cout << "Span defualt constructor is called" << std::endl;
 }
 
-Span::Span(unsigned int nbr) : nbrElements(nbr), shortest(0), longest(0) 
+Span::Span(unsigned int nbr) : nbrElements(nbr), sorted(0)
 {
 	// std::cout << "Span defualt constructor is called" << std::endl;
 }
@@ -39,8 +39,7 @@ Span&		Span::operator=(const Span& span)
 	// std::cout << "scalarConverter copy assignement is called" << std::endl;
 	if (this != &span)
 	{
-		this->shortest = span.shortest;
-		this->longest = span.longest;
+		this->sorted = span.sorted;
 		this->nbrElements = span.nbrElements;
 		this->vect.clear();
 		for (size_t i = 0; i < span.vect.size(); i++)
@@ -52,33 +51,44 @@ Span&		Span::operator=(const Span& span)
 	/*-----------------member functions----------------*/
 unsigned int Span::longestSpan(void)
 {
-	if (!this->vect.size() || this->vect.size() == 1)
+	if (this->vect.size() <= 1)
 		throw std::runtime_error("the distance can't be calculated");
-	return (this->longest);
+	if (!this->sorted)
+		std::sort(this->vect.begin(), this->vect.end()), this->sorted = 1;
+	return (std::abs(this->vect.back() - this->vect.front()));
 }
 
 unsigned int Span::shortestSpan(void)
 {
-	if (!this->vect.size() || this->vect.size() == 1)
+	if (this->vect.size() <= 1)
 		throw std::runtime_error("the distance can't be calculated");
-	return (this->shortest);
+	if (!this->sorted)
+		std::sort(this->vect.begin(), this->vect.end());
+	std::vector<int>::iterator it = this->vect.begin();
+	unsigned int shortest = std::abs(*(it++) - *it);
+	unsigned int tmp;
+	while (it + 1 != this->vect.end())
+	{
+		tmp = std::abs(*(it++) - *it);
+		if (shortest > tmp)
+			shortest = tmp;
+	}
+	return (this->sorted = 1, shortest);
+}
+
+iterator	Span::begin(void)
+{
+	return this->vect.begin();
+}
+
+iterator	Span::end(void)
+{
+	return this->vect.end();
 }
 
 void	Span::addNumber(int	number)
 {
 	if (this->vect.size() >= static_cast<size_t>(this->nbrElements))
 		throw std::runtime_error("the container is full!! there is no more space");
-	if (this->vect.size() == 1)
-	{
-		this->shortest = static_cast<long>(std::abs(number - this->vect.back()));
-		this->longest = this->shortest;
-	}
-	else if (this->vect.size() >= 2)
-	{
-		if (static_cast<long>(std::abs(number - this->vect.back())) < this->shortest)
-			this->shortest = std::abs(number - this->vect.back());
-		if (static_cast<long>(std::abs(number - this->vect.back())) > this->longest)
-			this->longest = std::abs(number - this->vect.back());
-	}
 	this->vect.push_back(number);
 }

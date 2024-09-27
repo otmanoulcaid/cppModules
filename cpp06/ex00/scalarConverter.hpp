@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 14:21:41 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/09/23 21:22:09 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/25 08:32:05 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class ScalarConverter
 		static void printInt(DataType dt, char * strFormat);
 		static void printChar(DataType dt, char *strFormat);
 		static DataType whichType(std::string strFormat);
-		static int validFormat(std::string strFormat);
+		static int validNumber(std::string strFormat);
 };
 
 #endif

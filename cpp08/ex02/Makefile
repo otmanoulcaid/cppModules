@@ -6,7 +6,7 @@
 #    By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 16:27:17 by ooulcaid          #+#    #+#              #
-#    Updated: 2024/08/16 16:27:47 by ooulcaid         ###   ########.fr        #
+#    Updated: 2024/09/27 14:33:47 by ooulcaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = stack
 
 all : $(NAME)
 
-main.o : main.cpp MutantStack.hpp
+%.o : %.cpp MutantStack.hpp
 	$(CPP) -c $< -o $@
 
 $(NAME) : $(OBJ)
