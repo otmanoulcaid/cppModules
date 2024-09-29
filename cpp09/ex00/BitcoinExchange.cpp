@@ -6,101 +6,109 @@ BitcoinExchange::BitcoinExchange(void)
 BitcoinExchange::~BitcoinExchange(void)
 {}
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& BitcoinExchange)
+BitcoinExchange::BitcoinExchange(BitcoinExchange& bitcoinExchange)
 {
-	(void)BitcoinExchange;
+	*this = bitcoinExchange;
 }
 
-BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& BitcoinExchange)
+BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange& bitcoin)
 {
-	(void)BitcoinExchange;
+	if (this != &bitcoin)
+	{
+		this->myContainer.clear();
+		String::iterator it = bitcoin.begin();
+		while (it != bitcoin.end())
+		{
+			this->myContainer[it->first] = it->second;
+			it++;
+		}
+	}
 	return *this;
 }
 
-int BitcoinExchange::onlyNumbers(const std::string& data)
+String::iterator	BitcoinExchange::begin()
 {
-	int	dot = 0;
-	for (size_t i = 0; i < data.length(); i++)
-	{
-		if (data[i] == '.')
-			dot++;
-		else if (data[i] < '0' || data[i] > '9')
-			return (0);
-	}
-	return (dot <= 1);
+	return (this->myContainer.begin());
 }
 
-int	BitcoinExchange::validDate(std::string date, char separator)
+String::iterator	BitcoinExchange::end()
+{
+	return (this->myContainer.end());
+}
+
+int		BitcoinExchange::validAmount(std::string value, size_t index)
+{
+	size_t	i;
+	for (i = index; i < value.size(); i++)
+		if ((value[i] < '0' || value[i] > '9') && value[i] != '.')
+			return (0);
+	return (i != index);
+}
+
+int		BitcoinExchange::validDate(std::string date)
 {
 	std::stringstream ss(date);
 	std::string year, month, day;
-	if (!std::getline(ss, year, separator) || !std::getline(ss, month, separator) \
-		|| !std::getline(ss, day, separator))
-	{
-		std::cerr << "something goes wrrong while reading dates" << std::endl;
+	if (!std::getline(ss, year, '-') || !std::getline(ss, month, '-') || !std::getline(ss, day, '-'))
 		return (0);
-	}
-	if (year.length() != 4 || !onlyNumbers(year) || \
-		month.length() != 2 || !onlyNumbers(month) || \
-		day.length() != 2 || !onlyNumbers(day))
-		return (std::cerr << "not a valid date : " << date << std::endl, 0);
-	return (1);
-}
-
-int	BitcoinExchange::validValue(const std::string& value)
-{
-	if (!onlyNumbers(value))
-		return (std::cerr << "not a valid value : " << value << std::endl, 0);
+	if (year.size() != 4 || month.size() != 2 || day.size() != 2)
+		return (0);
+	if (month > "12" || month < "01" || day < "01" || day > "31")
+		return (0);
+	if (month == "02" && month > "29")
+		return (0);
 	return (1);
 }
 
 double	BitcoinExchange::getCloseValue(const std::string& date)
 {
 	(void)date;
-	std::map<std::string, double>::reverse_iterator begin = this->myContainer.rbegin();
-	std::map<std::string, double>::reverse_iterator end = this->myContainer.rend();
+	String::reverse_iterator begin = this->myContainer.rbegin();
+	String::reverse_iterator end = this->myContainer.rend();
 	while (begin != end && begin->first > date)
 		begin++;
 	return begin->second;
 }
 
-void BitcoinExchange::processInputLine(const std::string& date, const std::string& value)
-{
-	double d = std::strtod(value.c_str(), NULL);
-	if (date < this->myContainer.begin()->first \
-	|| date > this->myContainer.rbegin()->first)
-		std::cerr << "Error: bad input => " << date << std::endl;
-	else if (d < 0)
-		std::cerr << "Error: not a positive number." << std::endl;
-	else if (d > 1000)
-		std::cerr << "Error: too large a number." << std::endl;
-	else
-		std::cout << date << " => " << d * getCloseValue(date) << std::endl;
-}
-
-int	BitcoinExchange::isValidData(std::string line, char delimiter, fileType type)
+int		BitcoinExchange::isValidTxtinput(const std::string& line)
 {
 	std::stringstream ss(line);
 	std::string date;
 	std::string value;
-	if ((!ss.eof() && !std::getline(ss, date, delimiter)) \
-	|| (!ss.eof() && !std::getline(ss, value, delimiter)))
-	{
-		std::cerr << "something goes wrong while parsing file content" << std::endl;
-		return (0);
-	}
-	if (type == csv && !validDate(date, '-'))
-		return (0);
-	if (type == csv && !validValue(value))
-		return (0);
-	if (type == csv)
-		this->myContainer.insert(std::pair<std::string, double>(date, std::strtod(value.c_str(), NULL)));
-	else
-		processInputLine(date, value);
+	if (!std::getline(ss, date, '|'))
+		return (std::cout << "empty line" << std::endl, 0);
+	if (!std::getline(ss, value, '|') || date.size() != 11)
+		return (std::cout << "Error: bad input => " << date << std::endl, 0);
+	date.pop_back();
+	if (!validDate(date))
+		return (std::cout << "Error: bad input => " << date << std::endl, 0);
+	if (date > (--myContainer.end())->first)
+		return (std::cout << "Error: bad input => " << date << std::endl, 0);
+	if (std::strtol(value.c_str(), NULL, 10) < 0)
+		return (std::cout << "Error: not a positive number." << std::endl, 0);
+	if (std::strtol(value.c_str(), NULL, 10) > 1000)
+		return (std::cout << "EError: too large a number." << std::endl, 0);
+	if (value[0] != ' ' || !validAmount(value, 1))
+		return (std::cout << "Error: bad input => " << value << std::endl, 0);
+	double closeValue = getCloseValue(date);
+	std::cout << date << " =>" << value << " = " << closeValue * std::strtod(value.c_str(), NULL) << std::endl;;
 	return (1);
 }
 
-int	BitcoinExchange::parseFile(const std::string& path, fileType type, char delimiter)
+int		BitcoinExchange::isValidCsvData(const std::string& line)
+{
+	std::stringstream ss(line);
+	std::string date;
+	std::string value;
+	if (!std::getline(ss, date, ',') || !std::getline(ss, value, ','))
+		return (0);
+	if ((date.size() == 10 && !validDate(date)) || !validAmount(value, 0))
+		return (std::cout<< "not a valid data set" << std::endl, 0);
+	this->myContainer.insert(std::pair<std::string, double>(date, std::strtod(value.c_str(), NULL)));
+	return (1);
+}
+
+int	BitcoinExchange::parseFileCsv(const std::string& path)
 {
 	std::ifstream input;
 	input.open(path);
@@ -112,7 +120,23 @@ int	BitcoinExchange::parseFile(const std::string& path, fileType type, char deli
 	std::string line;
 	std::getline(input, line);
 	while (std::getline(input, line) && line[0])
-		if (!isValidData(line, delimiter, type))
+		if (!isValidCsvData(line))
 			return (input.close(), 0);
+	return (input.close(), 1);
+}
+
+int	BitcoinExchange::parseFileTxt(const std::string& path)
+{
+	std::ifstream input;
+	input.open(path);
+	if (input.fail())
+	{
+		std::cerr << "Error: could not open file." << std::endl;
+		return (0);
+	}
+	std::string line;
+	std::getline(input, line);
+	while (std::getline(input, line))
+		isValidTxtinput(line);
 	return (input.close(), 1);
 }

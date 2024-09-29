@@ -6,42 +6,43 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 16:19:11 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/09/26 00:46:32 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/29 15:48:33 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
+template <typename T>
+void	print(T& myContainer)
+{
+	typename T::iterator it = myContainer.begin();
+	while (it != myContainer.end())
+		std::cout << *it++ << " ";
+	std::cout << std::endl;
+}
+
 int	main(int ac, char **av)
 {
-	
+	if (ac == 1)
+		return (1);
+	PmergeMe mrg;
+	vect myVector;
+	deque myDeque;
 	(void) ac;
 	try
 	{
-		PmergeMe mrg;
-		vect myVector;
-		int remain = -1;
-		mrg.getNumbers(av + 1, myVector, remain);
-		mrg.mergeSort(myVector);
-		vect::iterator pairIt = myVector.begin();
-		while (pairIt != myVector.end())
-		{
-			std::cout << "(" << pairIt->first << ", " << pairIt->second << ")" << std::endl ;
-			pairIt++;
-		}
-		std::vector<int> sorted = mrg.mainPendProcess(myVector);
-		std::vector<int>::iterator it = sorted.begin();
-		// if (remain > 0)
-		// {
-		// 	std::vector<int>::iterator position =  std::lower_bound(sorted.begin(), sorted.end(), remain);
-			// std::cout << *position << std::endl;
-			// sorted.insert(position, remain);
-		// }
-		while (it != sorted.end())
-		{
-			std::cout << *it << std::endl;
-			it++;	
-		}
+		mrg.fillVector(av + 1, myVector);
+		mrg.fillDeque(av + 1, myDeque);
+		std::cout << "before: ";
+		print(myVector);
+		mrg.sort(myVector);
+		mrg.sort(myDeque);
+		std::cout << "after: ";
+		print(myVector);
+		std::cout << "Time to process a range of "<< myVector.size()\
+			<< "elements with std::vector<int> : " << std::fixed << mrg.getVectorTiming() << std::endl; 
+		std::cout << "Time to process a range of "<< myDeque.size() \
+			<< "elements with std::deque<int> : "  << std::fixed << mrg.getDequeTiming() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -49,4 +50,3 @@ int	main(int ac, char **av)
 	}
 	return (0);
 }
-

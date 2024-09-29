@@ -6,7 +6,7 @@
 /*   By: ooulcaid <ooulcaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 08:11:39 by ooulcaid          #+#    #+#             */
-/*   Updated: 2024/09/24 13:24:12 by ooulcaid         ###   ########.fr       */
+/*   Updated: 2024/09/29 23:00:04 by ooulcaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,8 @@
 # include <fstream>
 # include <sstream>
 
-enum fileType
-{
-	txt,
-	csv
-};
+
+typedef std::map<std::string, double> String;
 
 class BitcoinExchange
 {
@@ -34,17 +31,21 @@ class BitcoinExchange
 		/*--------------Canonical Form--------------*/
 		BitcoinExchange(void);
 		~BitcoinExchange(void);
-		BitcoinExchange(const BitcoinExchange& bitcoin);
-		BitcoinExchange& operator=(const BitcoinExchange& bitcoin);
+		BitcoinExchange(BitcoinExchange& bitcoin);
+		BitcoinExchange& operator=(BitcoinExchange& bitcoin);
 
 		/*--------------member functions--------------*/
-		int	validValue(const std::string& line);
-		int onlyNumbers(const std::string& data);
-		double	getCloseValue(const std::string& date);
-		int	validDate(std::string line, char separator);
-		int	isValidData(std::string line, char delimiter, fileType type);
-		int	parseFile(const std::string& path, fileType type, char delimiter);
-		void processInputLine(const std::string& date, const std::string& value);
+		String::iterator	end();
+		String::iterator	begin();
+		int					validDate(std::string date);
+		int					parseFileCsv(const std::string& path);
+		int					parseFileTxt(const std::string& path);
+		double				getCloseValue(const std::string& date);
+		int					isValidCsvData(const std::string& line);
+		int					isValidTxtinput(const std::string& line);
+		int					validAmount(std::string value, size_t index);
+
+
 };
 
 #endif
